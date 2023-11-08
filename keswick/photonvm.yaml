@@ -1,43 +1,33 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: ubuntu-vm
+  name: photon-vm
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: guaranteed-small
-  imageName: cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.ova
+  imageName: packages.vmware.com/photon/4.0/GA/ova/photon-hw11-4.0-1526e30ba0.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
   vmMetadata:
-    configMapName: user-data-ubuntu
+    configMapName: user-data-photon
     transport: CloudInit
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: user-data-ubuntu
+    name: user-data-photon
     namespace: default
 data:
   user-data: |
     #cloud-config
-    network:
-    version: 2
-    ethernets:
-        nics:
-            match:
-                name: ens*
-            dhcp4: "yes"
-            dhcp6: "yes"
     ssh_pwauth: true
     users:
-      - name: ubuntu
+      - name: root
         sudo: ALL=(ALL) NOPASSWD:ALL
-        lock_passwd: false
-        passwd: 'VMware1!'
         shell: /bin/bash
     write_files:
       - content: |
