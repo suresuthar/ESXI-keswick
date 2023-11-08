@@ -25,10 +25,13 @@ data:
   user-data: |
     #cloud-config
     network:
-      version: 2
-      ethernets:
-        ens160:
-          dhcp4: true
+    version: 2
+    ethernets:
+        nics:
+            match:
+                name: ens*
+            dhcp4: "yes"
+            dhcp6: "yes"
     ssh_pwauth: true
     users:
       - name: ubuntu
