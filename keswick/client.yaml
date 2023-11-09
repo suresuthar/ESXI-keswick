@@ -7,6 +7,8 @@ metadata:
   name: client
   namespace: default
 spec:
+  imagePullSecrets:
+  - name: regcred
   containers:
   - args:
     - /bin/sh
