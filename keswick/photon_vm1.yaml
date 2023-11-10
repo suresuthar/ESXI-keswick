@@ -1,7 +1,7 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: photon-vm
+  name: photon2-vm
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -25,6 +25,12 @@ data:
   user-data: |
     #cloud-config
     ssh_pwauth: true
+    users:
+      - name: root
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        lock_passwd: false
+        passwd: '$6$jPEEsIxyhrtpmeQ1$RVkzSIXcA8mveWkWa6ihaC5WyBK0JxwhmttgYWCBgkZo3/lh.Nw1DhF0umF4.Oib60L9V1HRakgF.tW1/Svt9.'
+        shell: /bin/bash
     write_files:
       - content: |
           Keswick VM service says Hello World
