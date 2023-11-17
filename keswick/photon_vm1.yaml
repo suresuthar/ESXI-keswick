@@ -1,7 +1,7 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: photon1-vm
+  name: photon2-vm
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -37,15 +37,15 @@ data:
         path: /helloworld
     runcmd:
       - rm -f /etc/systemd/network/*.network
-      - systemctl restart systemd-networkd
       - |
-        cat <<EOF > /etc/systemd/network/10-ens192.network
+        cat <<EOF > /etc/systemd/network/10-eth0.network
         [Match]
         Name=e*
 
         [Network]
         DHCP=no
-        Address=10.176.166.111/24
+        Address=10.176.166.118/24
         Gateway=10.176.166.253
         EOF
-        
+      - systemctl restart systemd-networkd
+      - reboot
