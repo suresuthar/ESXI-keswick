@@ -12,11 +12,6 @@ spec:
   networkInterfaces:
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
-    networkType: "Distributed"
-    ipConfigs:
-    - ip: "10.176.166.171"
-      netmask: "255.255.255.0"
-      gateway: "10.176.166.253"
   vmMetadata:
     configMapName: user-data-photon
     transport: CloudInit
