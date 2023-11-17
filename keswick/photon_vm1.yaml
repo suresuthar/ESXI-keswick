@@ -1,7 +1,7 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: photon2-vm
+  name: photon1-vm
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -46,6 +46,7 @@ data:
         DHCP=no
         Address=10.176.166.118/24
         Gateway=10.176.166.253
+        DNS=10.176.166.1 8.8.8.8
         EOF
       - systemctl restart systemd-networkd
       - reboot
