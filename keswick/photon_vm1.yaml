@@ -1,7 +1,7 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: photon3-vm
+  name: photon1-vm
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -35,11 +35,17 @@ data:
       - content: |
           Keswick VM service says Hello World
         path: /helloworld
-      - content: |
-          [Match]
-          Name=eth0
+    runcmd:
+      - rm -f /etc/systemd/network/*.network
+      - systemctl restart systemd-networkd
+      - |
+        cat <<EOF > /etc/systemd/network/10-ens192.network
+        [Match]
+        Name=e*
 
-          [Network]
-          Address=10.176.166.111/24
-          Gateway=10.176.166.253
-        path: /etc/systemd/network/10-eth0.network
+        [Network]
+        DHCP=no
+        Address=10.176.166.111/24
+        Gateway=10.176.166.253
+        EOF
+        
