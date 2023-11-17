@@ -12,10 +12,6 @@ spec:
   networkInterfaces:
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
-    ipConfigs:
-    - ip: "10.176.166.171"
-      netmask: "255.255.255.0"
-      gateway: "10.176.166.253"
   vmMetadata:
     configMapName: user-data-photon
     transport: CloudInit
@@ -39,3 +35,10 @@ data:
       - content: |
           Keswick VM service says Hello World
         path: /helloworld
+      - content: |
+          auto ens192
+          iface ens192 inet static
+          address 10.176.166.111
+          netmask 255.255.255.0
+          gateway 10.176.166.253
+        path: /etc/network/interfaces.d/ens192.cfg
