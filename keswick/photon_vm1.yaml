@@ -1,7 +1,7 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: photon2-vm
+  name: photon3-vm
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -36,9 +36,10 @@ data:
           Keswick VM service says Hello World
         path: /helloworld
       - content: |
-          auto ens192
-          iface ens192 inet static
-          address 10.176.166.111
-          netmask 255.255.255.0
-          gateway 10.176.166.253
-        path: /etc/network/interfaces.d/ens192.cfg
+          [Match]
+          Name=eth0
+
+          [Network]
+          Address=10.176.166.111/24
+          Gateway=10.176.166.253
+        path: /etc/systemd/network/10-eth0.network
