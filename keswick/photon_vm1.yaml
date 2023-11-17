@@ -1,7 +1,7 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: photon2-vm
+  name: photon1-vm
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -12,6 +12,11 @@ spec:
   networkInterfaces:
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
+    networkType: "Distributed"
+    ipConfigs:
+    - ip: "10.176.166.171"
+      netmask: "255.255.255.0"
+      gateway: "10.176.166.253"
   vmMetadata:
     configMapName: user-data-photon
     transport: CloudInit
