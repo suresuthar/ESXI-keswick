@@ -1,0 +1,52 @@
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: photon-vm
+  namespace: default
+  annotations:
+    vmoperator.vmware.com/image-supported-check: disable
+spec:
+  className: guaranteed-small
+  imageName: packages.vmware.com/photon/4.0/GA/ova/photon-hw11-4.0-1526e30ba0.ova
+  powerState: poweredOn
+  networkInterfaces:
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  vmMetadata:
+    configMapName: user-data-photon
+    transport: CloudInit
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: user-data-photon
+    namespace: default
+data:
+  user-data: |
+    #cloud-config
+    ssh_pwauth: true
+    users:
+      - name: root
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        lock_passwd: false
+        passwd: '$6$jPEEsIxyhrtpmeQ1$RVkzSIXcA8mveWkWa6ihaC5WyBK0JxwhmttgYWCBgkZo3/lh.Nw1DhF0umF4.Oib60L9V1HRakgF.tW1/Svt9.'
+        shell: /bin/bash
+    write_files:
+      - content: |
+          Keswick VM service says Hello World
+        path: /helloworld
+    runcmd:
+      - rm -f /etc/systemd/network/*.network
+      - |
+        cat <<EOF > /etc/systemd/network/10-eth0.network
+        [Match]
+        Name=e*
+
+        [Network]
+        DHCP=no
+        Address=10.176.166.221/24
+        Gateway=10.176.166.253
+        DNS=10.176.166.1 8.8.8.8
+        EOF
+      - systemctl restart systemd-networkd
+      
