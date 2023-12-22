@@ -1,7 +1,7 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: ubuntu-vm
+  name: ubuntu-vm1
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -13,13 +13,13 @@ spec:
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
   vmMetadata:
-    configMapName: user-data-ubuntu
+    configMapName: user-data-ubuntu1
     transport: CloudInit
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: user-data-ubuntu
+    name: user-data-ubuntu1
     namespace: default
 data:
   user-data: |
