@@ -26,7 +26,7 @@ data:
     #cloud-config
     ssh_pwauth: true
     users:
-      - name: root
+      - name: ubuntu
         sudo: ALL=(ALL) NOPASSWD:ALL
         lock_passwd: false
         passwd: '$6$jPEEsIxyhrtpmeQ1$RVkzSIXcA8mveWkWa6ihaC5WyBK0JxwhmttgYWCBgkZo3/lh.Nw1DhF0umF4.Oib60L9V1HRakgF.tW1/Svt9.'
