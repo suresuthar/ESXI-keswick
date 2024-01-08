@@ -1,7 +1,7 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: ubuntu-alpr3
+  name: ubuntu-alpr-3
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -13,13 +13,13 @@ spec:
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
   vmMetadata:
-    configMapName: user-data-ubuntu3
+    configMapName: user-data-ubuntu-3
     transport: CloudInit
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: user-data-ubuntu3
+    name: user-data-ubuntu-3
     namespace: default
 data:
   user-data: |
@@ -44,7 +44,7 @@ data:
 
         [Network]
         DHCP=no
-        Address=10.176.166.126/24
+        Address=10.176.166.127/24
         Gateway=10.176.166.253
         DNS=10.176.166.1 8.8.8.8
         EOF
