@@ -1,0 +1,52 @@
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: ubuntu-alpr-2
+  namespace: default
+  annotations:
+    vmoperator.vmware.com/image-supported-check: disable
+spec:
+  className: guaranteed-small
+  imageName: cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.ova
+  powerState: poweredOn
+  networkInterfaces:
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  vmMetadata:
+    configMapName: user-data-ubuntu-2
+    transport: CloudInit
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: user-data-ubuntu-2
+    namespace: default
+data:
+  user-data: |
+    #cloud-config
+    ssh_pwauth: true
+    users:
+      - name: ubuntu
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        lock_passwd: false
+        passwd: '$6$lFpuphQWRsDXvAZA$mr3VKKx8l2TnladSXMfztX6D6mNwJyLNYsvmUevSWNWVQuP1YlD7pQJzFjkgzj6ISL4bo7TF8bQAUdWr9IHGE1'
+        shell: /bin/bash
+    write_files:
+      - content: |
+          Keswick VM service says Hello World
+        path: /helloworld
+    runcmd:
+      - rm -f /etc/systemd/network/*.network
+      - |
+        cat <<EOF > /etc/systemd/network/10-eth0.network
+        [Match]
+        Name=e*
+
+        [Network]
+        DHCP=no
+        Address=10.176.166.127/24
+        Gateway=10.176.166.253
+        DNS=10.176.166.1 8.8.8.8
+        EOF
+      - systemctl restart systemd-networkd
+      
