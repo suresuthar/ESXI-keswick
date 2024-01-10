@@ -39,9 +39,10 @@ data:
       - sudo rm -f /etc/netplan/*.yaml
       - |
         cat <<EOF > /etc/netplan/50-cloud-init.yaml
-        network
+        network:
             ethernets:
                 ens192:
                     dhcp4: true
             version: 2
+        EOF
       - sudo netplan apply
