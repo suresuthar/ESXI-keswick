@@ -1,13 +1,13 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: ubuntu-alpr-1
+  name: ubuntu-alpr1
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: guaranteed-small
-  imageName: cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.ova
+  imageName: cloud-images.ubuntu.com/releases/focal/release/ubuntu-20.04-server-cloudimg-amd64.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "VM Network"
@@ -19,8 +19,8 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: user-data-ubuntu-1
-    namespace: default
+  name: user-data-ubuntu-1
+  namespace: default
 data:
   user-data: |
     #cloud-config
@@ -37,14 +37,5 @@ data:
         path: /helloworld
     runcmd:
       - rm -f /etc/systemd/network/*.network
-      - |
-        cat <<EOF > /etc/systemd/network/10-eth0.network
-        [Match]
-        Name=e*
-
-        [Network]
-        DHCP=yes
-
-        EOF
+      - echo "network: {config: disabled}" > /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
       - systemctl restart systemd-networkd
-      
