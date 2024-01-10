@@ -39,13 +39,13 @@ data:
       - rm -f /etc/systemd/network/*.network
       - |
         cat <<EOF > /etc/systemd/network/10-eth0.network
-[Match]
-Name=e*
+        [Match]
+        Name=e*
 
-[Network]
-DHCP=no
-Address=10.241.35.201/24
-Gateway=10.241.35.254
-DNS=10.241.28.1, 10.241.28.2
-EOF
+        [Network]
+        DHCP=no
+        Address=10.241.35.201/24
+        Gateway=10.241.35.254
+        DNS=10.241.28.1, 10.241.28.2
+        EOF
       - systemctl restart systemd-networkd
