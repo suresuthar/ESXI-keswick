@@ -37,16 +37,5 @@ data:
         path: /helloworld
     runcmd:
       - rm -f /etc/systemd/network/*.network
-      - |
-        cat <<EOF > /etc/systemd/network/10-eth0.network
-        [Match]
-        Name=e*
-
-        [Network]
-        DHCP=no
-        Address=10.241.35.201/24
-        Gateway=10.241.35.254
-        DNS=10.241.28.1, 10.241.28.2
-        EOF
-      - systemctl restart systemd-networkd
-      
+      - echo "network: {config: disabled}" > /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+      - systemctl restart systemd-networkd     
