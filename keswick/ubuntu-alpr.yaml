@@ -1,13 +1,13 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: ubuntu-alpr
+  name: ubuntu-alpr1
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: guaranteed-small
-  imageName: cloud-images.ubuntu.com/releases/focal/release/ubuntu-20.04-server-cloudimg-amd64.ova
+  imageName: cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "VM Network"
