@@ -43,10 +43,8 @@ data:
         Name=e*
 
         [Network]
-        DHCP=no
-        Address=10.176.166.126/24
-        Gateway=10.176.166.253
-        DNS=10.176.166.1 8.8.8.8
+        DHCP=yes
+
         EOF
       - systemctl restart systemd-networkd
       
