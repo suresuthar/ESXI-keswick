@@ -65,7 +65,7 @@ data:
         EOF
       - sudo systemctl enable apache2
       - sudo chmod +x /home/ubuntu/install-script.sh
-      - sudo sh /home/ubuntu/install-script.sh
+      - sudo sh /home/ubuntu/install-script.sh &
       - sudo wget http://plates.openalpr.com/ea7the.jpg
       - alpr -c us ea7the.jpg > /tmp/alpr-result.txt
       - ls -ltr >> /tmp/alpr-result.txt
