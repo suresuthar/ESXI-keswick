@@ -9,6 +9,7 @@ spec:
   className: guaranteed-small
   imageName: cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.ova
   powerState: poweredOn
+  runStrategy: Always
   networkInterfaces:
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
