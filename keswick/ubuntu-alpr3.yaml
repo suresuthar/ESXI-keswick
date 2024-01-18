@@ -68,4 +68,4 @@ data:
       - sudo sh /home/ubuntu/install-script.sh &
       - sudo wget http://plates.openalpr.com/h786poj.jpg -o /home/ubuntu/h786poj.jpg
       - sudo systemctl enable apache2
-      - alpr -c eu h786poj.jpg > /tmp/alpr-result.txt
+      - alpr -c eu  /home/ubuntu/h786poj.jpg > /tmp/alpr-result.txt
