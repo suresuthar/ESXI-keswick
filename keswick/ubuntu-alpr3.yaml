@@ -55,12 +55,12 @@ data:
         sudo git clone https://github.com/openalpr/openalpr.git
         cd openalpr/
         cd src
-        mkdir build
+        sudo mkdir build
         cd build
-        cmake ..
-        make
+        sudo cmake ..
+        sudo make
         sudo make install
         sudo systemctl enable apache2
         EOF
       - sudo chmod +x /home/ubuntu/install-script.sh
-      - /home/ubuntu/install-script.sh
+      - sudo sh /home/ubuntu/install-script.sh
