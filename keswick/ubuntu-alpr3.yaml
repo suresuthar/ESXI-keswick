@@ -63,4 +63,4 @@ data:
         sudo systemctl enable apache2
         EOF
         - chmod +x /home/ubuntu/install-script.sh
-        - /home/ubuntu/install-script.sh
+        - /home/ubuntu/install-script.sh &
