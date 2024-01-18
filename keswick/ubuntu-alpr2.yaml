@@ -55,12 +55,17 @@ data:
         sudo git clone https://github.com/openalpr/openalpr.git
         cd openalpr/
         cd src
-        mkdir build
+        sudo mkdir build
         cd build
-        cmake ..
-        make
+        sudo cmake ..
+        sudo make
         sudo make install
-        sudo systemctl enable apache2
+        sudo cp /usr/share/openalpr/runtime_data/ocr/tessdata/* /usr/share/openalpr/runtime_data/ocr/
+        
         EOF
+      - sudo systemctl enable apache2
       - sudo chmod +x /home/ubuntu/install-script.sh
-      - /home/ubuntu/install-script.sh
+      - sudo sh /home/ubuntu/install-script.sh
+      - sudo wget http://plates.openalpr.com/ea7the.jpg
+      - alpr -c us ea7the.jpg > /tmp/alpr-result.txt
+      - ls -ltr >> /tmp/alpr-result.txt
