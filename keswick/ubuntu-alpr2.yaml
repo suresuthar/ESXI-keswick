@@ -62,11 +62,10 @@ data:
         sudo make
         sudo make install
         sudo cp /usr/share/openalpr/runtime_data/ocr/tessdata/* /usr/share/openalpr/runtime_data/ocr/
-        
+        sudo sleep 10
         EOF
       - sudo chmod +x /home/ubuntu/install-script.sh
       - sudo sh /home/ubuntu/install-script.sh &
-      - sudo wget http://plates.openalpr.com/ea7the.jpg
+      - sudo wget http://plates.openalpr.com/h786poj.jpg -o /home/ubuntu/h786poj.jpg
       - sudo systemctl enable apache2
-      - alpr -c us ea7the.jpg > /tmp/alpr-result.txt
-      - ls -ltr >> /tmp/alpr-result.txt
+      - alpr -c eu h786poj.jpg > /tmp/alpr-result.txt
