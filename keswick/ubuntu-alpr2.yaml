@@ -15,6 +15,7 @@ spec:
   vmMetadata:
     configMapName: user-data-ubuntu-2
     transport: CloudInit
+  restartPolicy: Always  # Add this line to set restartPolicy
 ---
 apiVersion: v1
 kind: ConfigMap
