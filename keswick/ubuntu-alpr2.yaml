@@ -47,12 +47,12 @@ data:
             version: 2
         EOF
       - sudo netplan apply
-        - |
+      - |
         cat <<EOF > /home/ubuntu/install-script.sh
         sudo apt-get update
         sudo apt install -y make cmake apache2
         sudo apt-get install -y python3-opencv openalpr g++ cmake libtesseract-dev libleptonica-dev libopencv-dev  libcurl4-openssl-dev liblog4cplus-dev
-        git clone https://github.com/openalpr/openalpr.git
+        sudo git clone https://github.com/openalpr/openalpr.git
         cd openalpr/
         cd src
         mkdir build
@@ -62,5 +62,5 @@ data:
         sudo make install
         sudo systemctl enable apache2
         EOF
-        - chmod +x /home/ubuntu/install-script.sh
-        - /home/ubuntu/install-script.sh
+      - sudo chmod +x /home/ubuntu/install-script.sh
+      - /home/ubuntu/install-script.sh
