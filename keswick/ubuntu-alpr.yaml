@@ -47,15 +47,25 @@ data:
             version: 2
         EOF
       - sudo netplan apply
-      - sudo apt-get update
-      - sudo apt install -y make cmake apache2
-      - sudo apt-get install -y python3-opencv openalpr g++ cmake libtesseract-dev libleptonica-dev libopencv-dev  libcurl4-openssl-dev liblog4cplus-dev
-      - git clone https://github.com/openalpr/openalpr.git
-      - cd openalpr/
-      - cd src
-      - mkdir build
-      - cd build
-      - cmake ..
-      - make
-      - sudo make install
+      - |
+        cat <<EOF > /home/ubuntu/install-script.sh
+        sudo sleep 60
+        sudo apt-get update
+        sudo apt install -y make cmake apache2
+        sudo apt-get install -y python3-opencv openalpr g++ cmake libtesseract-dev libleptonica-dev libopencv-dev  libcurl4-openssl-dev liblog4cplus-dev
+        sudo git clone https://github.com/openalpr/openalpr.git
+        cd openalpr/
+        cd src
+        sudo mkdir build
+        cd build
+        sudo cmake ..
+        sudo make
+        sudo make install
+        sudo cp /usr/share/openalpr/runtime_data/ocr/tessdata/* /usr/share/openalpr/runtime_data/ocr/
+        sudo sleep 10
+        EOF
+      - sudo chmod +x /home/ubuntu/install-script.sh
+      - sudo sh /home/ubuntu/install-script.sh &
+      - sudo wget http://plates.openalpr.com/h786poj.jpg -o /home/ubuntu/h786poj.jpg
       - sudo systemctl enable apache2
+      - alpr -c eu /home/ubuntu/h786poj.jpg > /tmp/alpr-result.txt
