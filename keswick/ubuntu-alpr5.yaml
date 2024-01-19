@@ -7,7 +7,7 @@ metadata:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: my-vm-class5
-  imageName: 10.241.35.159:/mnt/nfs_share/ubuntu-alpr1.ova
+  imageName: 10.241.35.159/ubuntu-alpr1.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "VM Network"
