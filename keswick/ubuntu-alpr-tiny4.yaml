@@ -69,7 +69,7 @@ data:
       - sudo netplan apply
       - |
         cat <<EOF > /home/ubuntu/install-script.sh
-        sudo sleep 60
+        sudo sleep 40
         sudo apt-get update
         sudo apt install -y make cmake apache2
         sudo apt-get install -y python3-opencv openalpr g++ cmake libtesseract-dev libleptonica-dev libopencv-dev  libcurl4-openssl-dev liblog4cplus-dev
@@ -82,7 +82,7 @@ data:
         sudo make
         sudo make install
         sudo cp /usr/share/openalpr/runtime_data/ocr/tessdata/* /usr/share/openalpr/runtime_data/ocr/
-        sudo sleep 20
+        sudo sleep 10
         sudo wget http://plates.openalpr.com/h786poj.jpg
         alpr -c eu h786poj.jpg > /tmp/alpr-result.txt
         EOF
