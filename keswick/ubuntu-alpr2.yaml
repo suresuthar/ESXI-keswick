@@ -1,12 +1,12 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: ubuntu-alpr2
+  name: ubuntu-alpr-2
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
-  className: guaranteed-small
+  className: my-vm-class
   imageName: cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.ova
   powerState: poweredOn
   networkInterfaces:
@@ -15,7 +15,27 @@ spec:
   vmMetadata:
     configMapName: user-data-ubuntu-2
     transport: CloudInit
-  
+
+---
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachineClass
+metadata:
+  name: my-vm-class
+spec:
+  configSpec:
+    _typeName: VirtualMachineConfigSpec
+    cpuAllocation:
+      _typeName: ResourceAllocationInfo
+      limit: 4096
+      reservation: 200
+    memoryAllocation:
+      _typeName: ResourceAllocationInfo
+      limit: 2048
+      reservation: 1024
+  hardware:
+    cpus: 1
+    memory: 2Gi
+
 ---
 apiVersion: v1
 kind: ConfigMap
