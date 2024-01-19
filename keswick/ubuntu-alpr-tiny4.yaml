@@ -15,7 +15,27 @@ spec:
   vmMetadata:
     configMapName: user-data-ubuntu-4
     transport: CloudInit
-  
+
+---
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachineClass
+metadata:
+  name: my-vm-class
+spec:
+  configSpec:
+    _typeName: VirtualMachineConfigSpec
+    cpuAllocation:
+      _typeName: ResourceAllocationInfo
+      limit: 400
+      reservation: 200
+    memoryAllocation:
+      _typeName: ResourceAllocationInfo
+      limit: 2048
+      reservation: 1024
+  hardware:
+    cpus: 1
+    memory: 2Gi
+
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -70,22 +90,3 @@ data:
       - sudo sh /home/ubuntu/install-script.sh &
       - sudo systemctl enable apache2
 
-  ---
-  apiVersion: vmoperator.vmware.com/v1alpha1
-  kind: VirtualMachineClass
-  metadata:
-    name: my-vm-class
-  spec:
-    configSpec:
-      _typeName: VirtualMachineConfigSpec
-      cpuAllocation:
-        _typeName: ResourceAllocationInfo
-        limit: 400
-        reservation: 200
-      memoryAllocation:
-        _typeName: ResourceAllocationInfo
-        limit: 2048
-        reservation: 1024
-    hardware:
-      cpus: 1
-      memory: 2Gi
