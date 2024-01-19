@@ -6,7 +6,7 @@ metadata:
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
-  className: my-vm-class
+  className: my-vm-class3
   imageName: cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.ova
   powerState: poweredOn
   networkInterfaces:
@@ -20,7 +20,7 @@ spec:
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachineClass
 metadata:
-  name: my-vm-class
+  name: my-vm-class3
 spec:
   configSpec:
     _typeName: VirtualMachineConfigSpec
