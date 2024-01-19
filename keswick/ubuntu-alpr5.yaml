@@ -1,0 +1,69 @@
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: ubuntu-alpr5
+  namespace: default
+  annotations:
+    vmoperator.vmware.com/image-supported-check: disable
+spec:
+  className: my-vm-class1
+  imageName: 10.241.35.159:/mnt/nfs_share/ubuntu-alpr1.ova
+  powerState: poweredOn
+  networkInterfaces:
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  vmMetadata:
+    configMapName: user-data-ubuntu-5
+    transport: CloudInit
+
+---
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachineClass
+metadata:
+  name: my-vm-class1
+spec:
+  configSpec:
+    _typeName: VirtualMachineConfigSpec
+    cpuAllocation:
+      _typeName: ResourceAllocationInfo
+      limit: 2200
+      reservation: 200
+    memoryAllocation:
+      _typeName: ResourceAllocationInfo
+      limit: 2048
+      reservation: 1024
+  hardware:
+    cpus: 1
+    memory: 2Gi
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: user-data-ubuntu-5
+    namespace: default
+data:
+  user-data: |
+    #cloud-config
+    ssh_pwauth: true
+    users:
+      - name: ubuntu
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        lock_passwd: false
+        passwd: '$6$lFpuphQWRsDXvAZA$mr3VKKx8l2TnladSXMfztX6D6mNwJyLNYsvmUevSWNWVQuP1YlD7pQJzFjkgzj6ISL4bo7TF8bQAUdWr9IHGE1'
+        shell: /bin/bash
+    write_files:
+      - content: |
+          Keswick VM service says Hello World
+        path: /helloworld1
+    runcmd:
+      - sudo rm -f /etc/netplan/*.yaml
+      - |
+        cat <<EOF > /etc/netplan/50-cloud-init.yaml
+        network:
+            ethernets:
+                ens192:
+                    dhcp4: true
+            version: 2
+        EOF
+      - sudo netplan apply
