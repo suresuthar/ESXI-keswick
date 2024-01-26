@@ -20,7 +20,7 @@ spec:
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachineClass
 metadata:
-  name: my-vm-class
+  name: my-vm-class4
 spec:
   configSpec:
     _typeName: VirtualMachineConfigSpec
