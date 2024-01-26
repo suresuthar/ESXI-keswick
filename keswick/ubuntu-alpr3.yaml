@@ -9,7 +9,6 @@ spec:
   className: my-vm-class3
   imageName: cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.ova
   powerState: poweredOn
-  autostart: true
   networkInterfaces:
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
