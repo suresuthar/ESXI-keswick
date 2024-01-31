@@ -44,9 +44,10 @@ spec:
         - /bin/bash
         - -c
         - |
+          echo "Executing AutoStart Commands"
           vim-cmd hostsvc/autostartmanager/enable_autostart 1
           vim-cmd hostsvc/autostartmanager/update_defaults 2 2
-
+          echo "Completed Host AutoStart --- Suresh"
           # Get all VMIDs, skipping the header, and ignore the first value
           vm_ids=$(vim-cmd vmsvc/getallvms | tail -n +2 | awk '{print $1}')
 
