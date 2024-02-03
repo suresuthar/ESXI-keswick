@@ -26,8 +26,8 @@ spec:
     _typeName: VirtualMachineConfigSpec
     cpuAllocation:
       _typeName: ResourceAllocationInfo
-     limit: 2200
-     reservation: 200
+      limit: 2200
+      reservation: 200
     memoryAllocation:
       _typeName: ResourceAllocationInfo
       limit: 2048
