@@ -1,0 +1,35 @@
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: new-vce-vm
+  namespace: default
+  annotations:
+    vmoperator.vmware.com/image-supported-check: disable
+spec:
+  className: guaranteed-small
+  imageName: 192.168.60.85:9000/edge-VC_VMDK-x86_64-5.2.0.2-10328-R5202-20231107-GA-125647-b452968bf3-updatable-ext4.ova
+  powerState: poweredOn
+  networkInterfaces:
+  - networkName: "VCE LAN"
+  - networkName: "Dummy Network"
+  - networkName: "VM Network"
+  vmMetadata:
+    configMapName: vce-props
+    transport: CloudInit
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: vce-props
+    namespace: default
+data:
+  user-data: |
+    #cloud-config
+    password: passw0rd
+    chpasswd: { expire: False }
+    ssh_pwauth: True
+    velocloud:
+      vce:
+        vco: vco12-usvi1.velocloud.net
+        activation_code: 3GVE-7KA2-X5J3-AVEN
+        vco_ignore_cert_errors: true
