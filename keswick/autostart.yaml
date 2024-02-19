@@ -1,4 +1,4 @@
-apiVersion: vmoperator.vmware.com/v1alpha1
+apiVersion: esx.vmware.com/v1alpha1
 kind: HostConfiguration
 metadata:
   name: my-esxi-host
