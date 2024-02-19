@@ -11,8 +11,10 @@ spec:
     stopDelay: 60  # Delay in seconds before stopping VMs during host shutdown
     stopAction: "guestShutdown"  # Action to take when stopping VMs (options: 'guestShutdown', 'powerOff')
     vmPowerOnOrder:
-      - vmName: "vm1"
+      - vmName: "ec-worker"
         priority: 1
-      - vmName: "vm2"
+      - vmName: "ubuntu-alpr1"
+        priority: 2
+      - vmName: "ubuntu-alpr5"
         priority: 2
       # Add more VMs and priorities as needed
