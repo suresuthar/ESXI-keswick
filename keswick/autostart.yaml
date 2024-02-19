@@ -17,5 +17,5 @@ spec:
       - vmName: "ubuntu-alpr1"
         priority: 2
       - vmName: "ubuntu-alpr5"
-        priority: 2
+        priority: 3
       # Add more VMs and priorities as needed
