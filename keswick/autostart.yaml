@@ -1,0 +1,18 @@
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: ESXiHost
+metadata:
+  name: my-esxi-host
+spec:
+  # Specify your ESXi host configuration here
+  # ...
+  autoStartSettings:
+    enabled: true  # Enable auto start for the ESXi host
+    startDelay: 120  # Delay in seconds before starting VMs after host boot
+    stopDelay: 60  # Delay in seconds before stopping VMs during host shutdown
+    stopAction: "guestShutdown"  # Action to take when stopping VMs (options: 'guestShutdown', 'powerOff')
+    vmPowerOnOrder:
+      - vmName: "vm1"
+        priority: 1
+      - vmName: "vm2"
+        priority: 2
+      # Add more VMs and priorities as needed
