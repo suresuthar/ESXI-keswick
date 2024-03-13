@@ -12,7 +12,7 @@ spec:
             "network_vss": {
                 "switches": [
                     {
-                        "name": "vSwitch1",
+                        "name": "vSwitch2",
                         "bridge": {
                             "link_discovery_protocol": {
                                 "protocol": "CDP",
