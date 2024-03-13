@@ -12,17 +12,17 @@ spec:
             "network_vss": {
                 "switches": [
                     {
-                        "name": "vSwitch0",
+                        "name": "vSwitch1",
                         "bridge": {
                             "link_discovery_protocol": {
                                 "protocol": "CDP",
                                 "operation": "LISTEN"
                             },
-                            "nics": ["vmnic0"]
+                            "nics": ["vmnic1"]
                         },
                         "port_groups": [
                             {
-                                "name": "Management Network",
+                                "name": "Mgmt Network",
                                 "vlan_id": 0,
                                 "policy": {
                                     "nic_teaming": {
@@ -30,17 +30,13 @@ spec:
                                         "notify_switches": true,
                                         "rolling_order": false,
                                         "link_criteria_beacon": "IGNORE",
-                                        "active_nics": ["vmnic0"],
+                                        "active_nics": ["vmnic1"],
                                         "standby_nics": []
                                     }
                                 }
                             },
                             {
-                                "name": "VM Network",
-                                "vlan_id": 0
-                            },
-                            {
-                                "name": "VM Network2",
+                                "name": "VM Net1work",
                                 "vlan_id": 0
                             }
                         ],
@@ -50,13 +46,13 @@ spec:
                                 "notify_switches": true,
                                 "rolling_order": false,
                                 "link_criteria_beacon": "IGNORE",
-                                "active_nics": ["vmnic0"],
+                                "active_nics": ["vmnic1"],
                                 "standby_nics": []
                             },
                             "security": {
-                                "allow_promiscuous": false,
-                                "mac_changes": false,
-                                "forged_transmits": false
+                                "allow_promiscuous": true,
+                                "mac_changes": true,
+                                "forged_transmits": true
                             }
                         }
                     }
