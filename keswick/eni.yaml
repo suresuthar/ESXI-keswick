@@ -1,12 +1,12 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: eni-crawler1
+  name: eni-crawler
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
-  className: my-vm-class-eni
+  className: my-vm-class-eni1
   imageName: 10.241.35.159/nyansa-vm-appliance.ova
   powerState: poweredOn
   networkInterfaces:
@@ -15,7 +15,7 @@ spec:
   - networkName: "SPAN"
     ethernetCardType: "vmxnet3"
   vmMetadata:
-    configMapName: user-data-eni
+    configMapName: user-data-eni1
     transport: CloudInit
 
 ---
@@ -42,7 +42,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: user-data-eni
+    name: user-data-eni1
     namespace: default
 data:
   user-data: |
