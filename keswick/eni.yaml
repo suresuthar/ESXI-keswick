@@ -12,6 +12,8 @@ spec:
   networkInterfaces:
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
+  - networkName: "SPAN"
+    ethernetCardType: "vmxnet3"
   vmMetadata:
     configMapName: user-data-eni
     transport: CloudInit
