@@ -1,13 +1,13 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: eni-crawler
+  name: eni-crawler1
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: my-vm-class-eni
-  imageName: 10.241.35.159/ubuntu.ova
+  imageName: 10.241.35.159/nyansa-vm-appliance-100.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "VM Network"
