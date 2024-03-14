@@ -7,7 +7,7 @@ metadata:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: my-vm-class-eni
-  imageName: 10.241.35.159/nyansa-vm-appliance-100.ova
+  imageName: 10.241.35.159/ubuntu.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "VM Network"
