@@ -1,13 +1,13 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: eni-crawler3
+  name: eni-crawler
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: my-vm-class-eni3
-  imageName: 10.241.35.159/nyansa-vm-appliance.ova
+  imageName: 10.241.35.159/ubuntu-alpr1.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "VM Network"
@@ -47,3 +47,14 @@ metadata:
 data:
   user-data: |
     #cloud-config
+        ssh_pwauth: true
+    users:
+      - name: ubuntu
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        lock_passwd: false
+        passwd: '$6$lFpuphQWRsDXvAZA$mr3VKKx8l2TnladSXMfztX6D6mNwJyLNYsvmUevSWNWVQuP1YlD7pQJzFjkgzj6ISL4bo7TF8bQAUdWr9IHGE1'
+        shell: /bin/bash
+    write_files:
+      - content: |
+          Keswick VM service says Hello World
+        path: /helloworld1
