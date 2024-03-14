@@ -1,1 +1,44 @@
-nyansa-vm-appliance-100.ova
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: eni-crawler
+  namespace: default
+  annotations:
+    vmoperator.vmware.com/image-supported-check: disable
+spec:
+  className: my-vm-class-eni
+  imageName: 10.241.35.159/nyansa-vm-appliance-100.ova
+  powerState: poweredOn
+  networkInterfaces:
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  vmMetadata:
+    configMapName: user-data-eni
+    transport: CloudInit
+
+---
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachineClass
+metadata:
+  name: my-vm-class-eni
+spec:
+  configSpec:
+    _typeName: VirtualMachineConfigSpec
+    cpuAllocation:
+      _typeName: ResourceAllocationInfo
+      limit: 4400
+      reservation: 800
+    memoryAllocation:
+      _typeName: ResourceAllocationInfo
+      limit: 4096
+      reservation: 2048
+  hardware:
+    cpus: 2
+    memory: 4Gi
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: user-data-eni
+    namespace: default
