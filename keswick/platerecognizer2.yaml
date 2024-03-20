@@ -67,6 +67,9 @@ data:
             version: 2
         EOF
       - sudo netplan apply
+      - sudo apt-get update
+      - sleep 10
+      - sudo apt install apache2
       - sleep 10
       - curl -fsSL https://get.docker.com -o get-docker.sh
       - sh get-docker.sh
@@ -75,4 +78,7 @@ data:
       - sleep 10
       - chmod +x PlateRecognizer-Installer
       - ./PlateRecognizer-Installer
+      - sleep 10
+      - sudo usermod -aG docker ubuntu
+      -  sudo docker run --restart="unless-stopped" -v /var/www/html:/user-data --user `id -u`:`id -g` -e LICENSE_KEY=qn57gDhd3x -e TOKEN=a7f0481acf8a11c2a6f73737ecf464842133da80 platerecognizer/alpr-stream &
       
