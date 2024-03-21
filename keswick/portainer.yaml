@@ -12,7 +12,7 @@ metadata:
 provisioner: csi.vsphere.vmware.com
 parameters:
   StoragePolicyName: portainer-cs
-volumeBindingMode: WaitForFirstConsumer
+volumeBindingMode: Immediate
 allowVolumeExpansion: false
 reclaimPolicy: Delete
 ---
