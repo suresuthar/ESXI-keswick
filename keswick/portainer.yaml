@@ -29,7 +29,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt"
+    path: "/mnt/data"
 ---
 # Source: portainer/templates/serviceaccount.yaml
 apiVersion: v1
@@ -61,7 +61,6 @@ spec:
   resources:
     requests:
       storage: "10Gi"
-  storageClassName: thin-csi
 ---
 # Source: portainer/templates/rbac.yaml
 apiVersion: rbac.authorization.k8s.io/v1
