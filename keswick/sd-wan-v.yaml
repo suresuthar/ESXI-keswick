@@ -6,7 +6,7 @@ metadata:
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: sd-wan-edge02
+  name: test-ss-ecs-1
   namespace: sdwan
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -45,5 +45,5 @@ stringData:
     velocloud:
       vce: 
             vco: vco12-usvi1.velocloud.net
-            activation_code: MYXF-YS38-BALR-RBTD
+            activation_code: 93KY-NEFK-AFAU-QYFF
             vco_ignore_cert_errors: true 
