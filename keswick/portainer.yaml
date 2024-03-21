@@ -9,12 +9,26 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: thin-csi
-provisioner: csi.vsphere.vmware.com
 parameters:
   StoragePolicyName: portainer-cs
 volumeBindingMode: Immediate
 allowVolumeExpansion: false
 reclaimPolicy: Delete
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: task-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: thin-csi
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
 ---
 # Source: portainer/templates/serviceaccount.yaml
 apiVersion: v1
