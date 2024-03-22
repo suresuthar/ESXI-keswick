@@ -79,23 +79,23 @@ data:
       - sleep 20
       - |
         cat <<EOF > /var/www/html/config.ini
-				timezone = UTC
-				[cameras]
-				  image_format = $(camera)_screenshots/%y-%m-%d/%H-%M-%S.%f.jpg
-				  [[camera-1]]
-					active = yes
-					url = http://192.168.1.37:8080/video
-					csv_file = $(camera)_%y-%m-%d.csv
-					webhook_targets = parkpow
-				[webhooks]
-				  caching = yes
-				  [[parkpow]]
-					url = https://app.parkpow.com/api/v1/webhook-receiver/
-					image = yes
-					header = Authorization: Token 12d01928876686594158cb8391a137d1c1cdec54
-					image_type = vehicle
-					request_timeout = 20
-					caching = no
+	timezone = UTC
+	[cameras]
+  	image_format = $(camera)_screenshots/%y-%m-%d/%H-%M-%S.%f.jpg
+  	[[camera-1]]
+		active = yes
+		url = http://192.168.1.37:8080/video
+		csv_file = $(camera)_%y-%m-%d.csv
+		webhook_targets = parkpow
+	[webhooks]
+  	caching = yes
+  	[[parkpow]]
+		url = https://app.parkpow.com/api/v1/webhook-receiver/
+		image = yes
+		header = Authorization: Token 12d01928876686594158cb8391a137d1c1cdec54
+		image_type = vehicle
+		request_timeout = 20
+		caching = no
         EOF
       - sudo docker run --restart="unless-stopped" -v /var/www/html:/user-data --user `id -u`:`id -g` -e LICENSE_KEY=qn57gDhd3x -e TOKEN=a7f0481acf8a11c2a6f73737ecf464842133da80 platerecognizer/alpr-stream &
       
