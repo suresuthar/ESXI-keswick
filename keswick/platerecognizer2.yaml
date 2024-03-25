@@ -78,6 +78,7 @@ data:
       - |
         cat <<EOF > /var/www/html/config.ini
 	timezone = UTC
+ 	mmc = true
 	[cameras]
   	image_format = $(camera)_screenshots/%y-%m-%d/%H-%M-%S.%f.jpg
   	[[camera-1]]
