@@ -11,7 +11,7 @@ metadata:
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
-  className: guaranteed-medium
+  className: guaranteed-small
   imageName: ent.box.com/shared/static/1u6qrqcua43cm0iefjc2y17wqro262tk.ova
   powerState: poweredOn
   networkInterfaces:
