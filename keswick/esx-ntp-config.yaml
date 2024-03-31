@@ -6,83 +6,83 @@ metadata:
 spec:
   layertype: Incremental
   profile: 
-	  esx: 
-		system: 
-		  system_time: 
-			enabled: "true"
-			ntp_config: 
-			  server: 
-			  - command: "SERVER"
-				hostname: "0.pool.ntp.org"
-			  - command: "SERVER"
-				hostname: "1.pool.ntp.org"
-			protocol: "NTP"
-		network_vss: 
-		  switches: 
-		  - name: "vSwitch0"
-			bridge: 
-			  link_discovery_protocol: 
-				protocol: "CDP"
-				operation: "LISTEN"
-			  nics: 
-			  - "vmnic3"
-			port_groups: 
-			- name: "Management Network"
-			  vlan_id: "0"
-			  policy: 
-				nic_teaming: 
-				  policy: "LOADBALANCE_SRCID"
-				  notify_switches: "true"
-				  rolling_order: "false"
-				  link_criteria_beacon: "IGNORE"
-				  active_nics: 
-				  - "vmnic3"
-				  standby_nics: 
-			- name: "VM Network"
-			  vlan_id: "0"
-			- name: "span"
-			  vlan_id: "4095"
-			  policy: 
-				security: 
-				  allow_promiscuous: "true"
-				  mac_changes: "true"
-				  forged_transmits: "true"
-			policy: 
-			  nic_teaming: 
-				policy: "LOADBALANCE_SRCID"
-				notify_switches: "true"
-				rolling_order: "false"
-				link_criteria_beacon: "IGNORE"
-				active_nics: 
-				standby_nics: 
-				- "vmnic3"
-			  security: 
-				allow_promiscuous: "false"
-				mac_changes: "false"
-				forged_transmits: "false"
-			  traffic_shaping: 
-				enabled: "false"
-		  - name: "vSwitch1"
-			policy: 
-			  nic_teaming: 
-				policy: "LOADBALANCE_SRCID"
-				notify_switches: "true"
-				rolling_order: "false"
-				link_criteria_beacon: "IGNORE"
-				active_nics: 
-				standby_nics: 
-			  security: 
-				allow_promiscuous: "true"
-				mac_changes: "true"
-				forged_transmits: "true"
-			  traffic_shaping: 
-				enabled: "false"
-			bridge: 
-			  link_discovery_protocol: 
-				protocol: "CDP"
-				operation: "LISTEN"
-			num_ports: "1024"
-			mtu: "1500"
-			port_groups: 
-			- name: "Internal"
-			  vlan_id: "10"
+    esx: 
+      system: 
+        system_time: 
+          enabled: "true"
+          ntp_config: 
+            server: 
+              - command: "SERVER"
+                hostname: "0.pool.ntp.org"
+              - command: "SERVER"
+                hostname: "1.pool.ntp.org"
+          protocol: "NTP"
+      network_vss: 
+        switches: 
+          - name: "vSwitch0"
+            bridge: 
+              link_discovery_protocol: 
+                protocol: "CDP"
+                operation: "LISTEN"
+              nics: 
+                - "vmnic3"
+            port_groups: 
+              - name: "Management Network"
+                vlan_id: "0"
+                policy: 
+                  nic_teaming: 
+                    policy: "LOADBALANCE_SRCID"
+                    notify_switches: "true"
+                    rolling_order: "false"
+                    link_criteria_beacon: "IGNORE"
+                    active_nics: 
+                      - "vmnic3"
+                    standby_nics: 
+              - name: "VM Network"
+                vlan_id: "0"
+              - name: "span"
+                vlan_id: "4095"
+                policy: 
+                  security: 
+                    allow_promiscuous: "true"
+                    mac_changes: "true"
+                    forged_transmits: "true"
+              policy: 
+                nic_teaming: 
+                  policy: "LOADBALANCE_SRCID"
+                  notify_switches: "true"
+                  rolling_order: "false"
+                  link_criteria_beacon: "IGNORE"
+                  active_nics: 
+                  standby_nics: 
+                    - "vmnic3"
+                security: 
+                  allow_promiscuous: "false"
+                  mac_changes: "false"
+                  forged_transmits: "false"
+                traffic_shaping: 
+                  enabled: "false"
+          - name: "vSwitch1"
+            policy: 
+              nic_teaming: 
+                policy: "LOADBALANCE_SRCID"
+                notify_switches: "true"
+                rolling_order: "false"
+                link_criteria_beacon: "IGNORE"
+                active_nics: 
+                standby_nics: 
+              security: 
+                allow_promiscuous: "true"
+                mac_changes: "true"
+                forged_transmits: "true"
+              traffic_shaping: 
+                enabled: "false"
+            bridge: 
+              link_discovery_protocol: 
+                protocol: "CDP"
+                operation: "LISTEN"
+            num_ports: "1024"
+            mtu: "1500"
+            port_groups: 
+              - name: "Internal"
+                vlan_id: "10"
