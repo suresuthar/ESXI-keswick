@@ -50,7 +50,6 @@ spec:
                                 "name": "Span",
                                 "vlan_id": 4095
                             }
-                            
                         ],
                         "policy": {
                             "nic_teaming": {
