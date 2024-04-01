@@ -32,8 +32,8 @@ spec:
                 vlan_id: 0
               - name: span
                 vlan_id: 4095
-			  - name: Internal
-			    vlan_id: 10
+              - name: Internal
+	        vlan_id: 10
                 policy:
                   security:
                     allow_promiscuous: true
