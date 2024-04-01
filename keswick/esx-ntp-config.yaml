@@ -41,14 +41,6 @@ spec:
                             {
                                 "name": "VM Network",
                                 "vlan_id": 0
-                            },
-                            {
-                                "name": "Inter-VMs",
-                                "vlan_id": 10
-                            },
-                            {
-                                "name": "SPAN",
-                                "vlan_id": 4095
                             }
                         ],
                         "policy": {
@@ -63,11 +55,46 @@ spec:
                                 "standby_nics": []
                             },
                             "security": {
-                                "allow_promiscuous": true,
-                                "mac_changes": true,
-                                "forged_transmits": true
+                                "allow_promiscuous": false,
+                                "mac_changes": false,
+                                "forged_transmits": false
                             }
                         }
+                    },
+                    {
+                        "name": "NewvSwitch",
+                        "policy": {
+                            "nic_teaming": {
+                                "policy": "LOADBALANCE_SRCID",
+                                "notify_switches": true,
+                                "rolling_order": false,
+                                "link_criteria_beacon": "IGNORE",
+                                "active_nics": []
+                                "standby_nics": []
+                            },
+                            "security": {
+                                "allow_promiscuous": false,
+                                "mac_changes": false,
+                                "forged_transmits": false
+                            },
+                            "traffic_shaping": {
+                                "enabled": false
+                            }
+                        },
+                        "bridge": {
+                            "link_discovery_protocol": {
+                                "protocol": "CDP",
+                                "operation": "LISTEN"
+                            }
+                        },
+                        "num_ports": 1024,
+                        "mtu": 1500,
+                        "port_groups": [
+                            {
+                                "name": "New port group",
+                                "vlan_id": 10
+                            }
+                        ]
                     }
                 ]
             }
