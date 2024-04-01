@@ -39,18 +39,18 @@ spec:
                     forged_transmits: true
               - name: Internal
                 vlan_id: 10
-	    policy:
-              nic_teaming:
-                policy: LOADBALANCE_SRCID
-                notify_switches: true
-                rolling_order: false
-                link_criteria_beacon: IGNORE
-                active_nics: []
-                standby_nics:
-                  - vmnic0
-              security:
-                allow_promiscuous: false
-                mac_changes: false
-                forged_transmits: false
-              traffic_shaping:
-                enabled: false
+                policy:
+                  nic_teaming:
+                    policy: LOADBALANCE_SRCID
+                    notify_switches: true
+                    rolling_order: false
+                    link_criteria_beacon: IGNORE
+                    active_nics: []
+                    standby_nics:
+                      - vmnic0
+                  security:
+                    allow_promiscuous: false
+                    mac_changes: false
+                    forged_transmits: false
+                  traffic_shaping:
+                    enabled: false
