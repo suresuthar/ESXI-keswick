@@ -6,7 +6,7 @@ metadata:
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: test-ss-ecs-2
+  name: vcd-ss-7250
   namespace: sdwan
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -45,5 +45,5 @@ stringData:
     velocloud:
       vce: 
             vco: vco12-usvi1.velocloud.net
-            activation_code: FPCY-GKAE-R4LT-SHMV
+            activation_code: CZR8-XM4B-AWUL-6PEQ
             vco_ignore_cert_errors: true
