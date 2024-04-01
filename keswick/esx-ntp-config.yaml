@@ -43,11 +43,11 @@ spec:
                                 "vlan_id": 0
                             },
                             {
-                                "name": "Internal",
+                                "name": "Inter-VMs",
                                 "vlan_id": 10
                             },
                             {
-                                "name": "Span",
+                                "name": "SPAN",
                                 "vlan_id": 4095
                             }
                         ],
