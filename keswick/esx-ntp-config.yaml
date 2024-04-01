@@ -38,7 +38,7 @@ spec:
                     mac_changes: true
                     forged_transmits: true
               - name: Internal
-	        vlan_id: 10
+                vlan_id: 10
 	    policy:
               nic_teaming:
                 policy: LOADBALANCE_SRCID
