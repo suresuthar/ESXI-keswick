@@ -32,14 +32,14 @@ spec:
                 vlan_id: 0
               - name: span
                 vlan_id: 4095
-              - name: Internal
-	        vlan_id: 10
                 policy:
                   security:
                     allow_promiscuous: true
                     mac_changes: true
                     forged_transmits: true
-            policy:
+              - name: Internal
+	        vlan_id: 10
+	    policy:
               nic_teaming:
                 policy: LOADBALANCE_SRCID
                 notify_switches: true
