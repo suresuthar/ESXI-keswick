@@ -18,7 +18,7 @@ spec:
                                 "operation": "LISTEN"
                             },
                             "nics": [
-                                "vmnic0"
+                                "vmnic5"
                             ]
                         },
                         "port_groups": [
@@ -32,7 +32,7 @@ spec:
                                         "rolling_order": false,
                                         "link_criteria_beacon": "IGNORE",
                                         "active_nics": [
-                                            "vmnic0"
+                                            "vmnic5"
                                         ],
                                         "standby_nics": []
                                     }
@@ -54,7 +54,7 @@ spec:
                                 "rolling_order": false,
                                 "link_criteria_beacon": "IGNORE",
                                 "active_nics": [
-                                    "vmnic0"
+                                    "vmnic5"
                                 ],
                                 "standby_nics": []
                             },
