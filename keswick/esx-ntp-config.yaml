@@ -41,6 +41,10 @@ spec:
                             {
                                 "name": "VM Network",
                                 "vlan_id": 0
+                            },
+                            {
+                                "name": "Span-pg",
+                                "vlan_id": 4095
                             }
                         ],
                         "policy": {
