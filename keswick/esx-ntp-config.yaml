@@ -1,7 +1,7 @@
 apiVersion: esx.vmware.com/v1alpha1
 kind: HostConfiguration
 metadata:
-  name: ecs-netconf
+  name: perfect-network
   namespace: esx-system
 spec:
   layertype: Incremental
@@ -10,41 +10,6 @@ spec:
         "esx": {
             "network_vss": {
                 "switches": [
-                    {
-                        "name": "vSwitch0",
-                        "bridge": {
-                            "link_discovery_protocol": {
-                                "protocol": "CDP",
-                                "operation": "LISTEN"
-                            },
-                            "nics": [
-                                "vmnic5"
-                            ]
-                        },
-                        "port_groups": [
-                            {
-                                "name": "Span-pg",
-                                "vlan_id": 4095
-                            }
-                        ],
-                        "policy": {
-                            "nic_teaming": {
-                                "policy": "LOADBALANCE_SRCID",
-                                "notify_switches": true,
-                                "rolling_order": false,
-                                "link_criteria_beacon": "IGNORE",
-                                "active_nics": [
-                                    "vmnic5"
-                                ],
-                                "standby_nics": []
-                            },
-                            "security": {
-                                "allow_promiscuous": true,
-                                "mac_changes": true,
-                                "forged_transmits": true
-                            }
-                        }
-                    },
                     {
                         "name": "NewvSwitch",
                         "policy": {
