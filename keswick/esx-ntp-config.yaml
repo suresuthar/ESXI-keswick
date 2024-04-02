@@ -69,7 +69,7 @@ spec:
                                 "notify_switches": true,
                                 "rolling_order": false,
                                 "link_criteria_beacon": "IGNORE",
-                                "active_nics": []
+                                "active_nics": [],
                                 "standby_nics": []
                             },
                             "security": {
