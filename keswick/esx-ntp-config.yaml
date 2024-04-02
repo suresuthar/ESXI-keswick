@@ -95,7 +95,7 @@ spec:
                         "mtu": 1500,
                         "port_groups": [
                             {
-                                "name": "Internal",
+                                "name": "AppVMs",
                                 "vlan_id": 10
                             }
                         ]
