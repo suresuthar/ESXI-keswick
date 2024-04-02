@@ -23,26 +23,6 @@ spec:
                         },
                         "port_groups": [
                             {
-                                "name": "Management Network",
-                                "vlan_id": 0,
-                                "policy": {
-                                    "nic_teaming": {
-                                        "policy": "LOADBALANCE_SRCID",
-                                        "notify_switches": true,
-                                        "rolling_order": false,
-                                        "link_criteria_beacon": "IGNORE",
-                                        "active_nics": [
-                                            "vmnic5"
-                                        ],
-                                        "standby_nics": []
-                                    }
-                                }
-                            },
-                            {
-                                "name": "VM Network",
-                                "vlan_id": 0
-                            },
-                            {
                                 "name": "Span-pg",
                                 "vlan_id": 4095
                             }
@@ -59,9 +39,9 @@ spec:
                                 "standby_nics": []
                             },
                             "security": {
-                                "allow_promiscuous": false,
-                                "mac_changes": false,
-                                "forged_transmits": false
+                                "allow_promiscuous": true,
+                                "mac_changes": true,
+                                "forged_transmits": true
                             }
                         }
                     },
