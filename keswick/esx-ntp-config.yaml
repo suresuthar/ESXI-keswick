@@ -1,7 +1,7 @@
 apiVersion: esx.vmware.com/v1alpha1
 kind: HostConfiguration
 metadata:
-  name: ecs-netconf-test
+  name: ecs-netconfig
   namespace: esx-system
 spec:
   layertype: Incremental
