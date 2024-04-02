@@ -41,6 +41,10 @@ spec:
                             {
                                 "name": "VM Network",
                                 "vlan_id": 0
+                            },
+                            {
+                                "name": "SPAN",
+                                "vlan_id": 4095
                             }
                         ],
                         "policy": {
@@ -62,7 +66,7 @@ spec:
                         }
                     },
                     {
-                        "name": "NewvSwitch",
+                        "name": "vSwitch1",
                         "policy": {
                             "nic_teaming": {
                                 "policy": "LOADBALANCE_SRCID",
@@ -91,7 +95,7 @@ spec:
                         "mtu": 1500,
                         "port_groups": [
                             {
-                                "name": "New port group",
+                                "name": "Internal",
                                 "vlan_id": 10
                             }
                         ]
