@@ -23,9 +23,9 @@ spec:
     ethernetCardType: "vmxnet3"
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
-  - networkName: "span"
+  - networkName: "SPAN"
     ethernetCardType: "vmxnet3"
-  - networkName: "span"
+  - networkName: "SPAN"
     ethernetCardType: "vmxnet3"
   vmMetadata:
     secretName: my-vm-bootstrap-data
