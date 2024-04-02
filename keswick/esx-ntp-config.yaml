@@ -59,9 +59,9 @@ spec:
                                 "standby_nics": []
                             },
                             "security": {
-                                "allow_promiscuous": false,
-                                "mac_changes": false,
-                                "forged_transmits": false
+                                "allow_promiscuous": true,
+                                "mac_changes": true,
+                                "forged_transmits": true
                             }
                         }
                     },
