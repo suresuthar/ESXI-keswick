@@ -1,7 +1,7 @@
 apiVersion: esx.vmware.com/v1alpha1
 kind: HostConfiguration
 metadata:
-  name: perfect-network
+  name: nic-scan-on-boot
   namespace: esx-system
 spec:
   layertype: Incremental
@@ -10,6 +10,57 @@ spec:
         "esx": {
             "network_vss": {
                 "switches": [
+                    {
+                        "name": "vSwitch0",
+                        "bridge": {
+                            "link_discovery_protocol": {
+                                "protocol": "CDP",
+                                "operation": "LISTEN"
+                            },
+                            "nics": [
+                                "vmnic5"
+                            ]
+                        },
+                        "port_groups": [
+                            {
+                                "name": "Management Network",
+                                "vlan_id": 0,
+                                "policy": {
+                                    "nic_teaming": {
+                                        "policy": "LOADBALANCE_SRCID",
+                                        "notify_switches": true,
+                                        "rolling_order": false,
+                                        "link_criteria_beacon": "IGNORE",
+                                        "active_nics": [
+                                            "vmnic5"
+                                        ],
+                                        "standby_nics": []
+                                    }
+                                }
+                            },
+                            {
+                                "name": "VM Network",
+                                "vlan_id": 0
+                            }
+                        ],
+                        "policy": {
+                            "nic_teaming": {
+                                "policy": "LOADBALANCE_SRCID",
+                                "notify_switches": true,
+                                "rolling_order": false,
+                                "link_criteria_beacon": "IGNORE",
+                                "active_nics": [
+                                    "vmnic5"
+                                ],
+                                "standby_nics": []
+                            },
+                            "security": {
+                                "allow_promiscuous": false,
+                                "mac_changes": false,
+                                "forged_transmits": false
+                            }
+                        }
+                    },
                     {
                         "name": "NewvSwitch",
                         "policy": {
@@ -40,7 +91,7 @@ spec:
                         "mtu": 1500,
                         "port_groups": [
                             {
-                                "name": "New pg",
+                                "name": "New port group",
                                 "vlan_id": 10
                             }
                         ]
