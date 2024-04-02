@@ -1,7 +1,7 @@
 apiVersion: esx.vmware.com/v1alpha1
 kind: HostConfiguration
 metadata:
-  name: ecs-netconfig
+  name: ecs-netconf
   namespace: esx-system
 spec:
   layertype: Incremental
@@ -66,7 +66,7 @@ spec:
                         }
                     },
                     {
-                        "name": "vSwitch1",
+                        "name": "NewvSwitch",
                         "policy": {
                             "nic_teaming": {
                                 "policy": "LOADBALANCE_SRCID",
@@ -95,7 +95,7 @@ spec:
                         "mtu": 1500,
                         "port_groups": [
                             {
-                                "name": "AppVMs",
+                                "name": "New pg",
                                 "vlan_id": 10
                             }
                         ]
