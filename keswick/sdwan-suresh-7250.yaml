@@ -15,9 +15,9 @@ spec:
   imageName: ent.box.com/shared/static/1u6qrqcua43cm0iefjc2y17wqro262tk.ova
   powerState: poweredOn
   networkInterfaces:
-  - networkName: "Internal"
+  - networkName: "AppVMs"
     ethernetCardType: "vmxnet3"
-  - networkName: "Internal"
+  - networkName: "AppVMs"
     ethernetCardType: "vmxnet3"
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
