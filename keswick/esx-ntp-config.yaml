@@ -8,6 +8,24 @@ spec:
   profile: |
     {
         "esx": {
+            "system": {
+                "system_time": {
+                    "enabled": "true",
+                    "ntp_config": {
+                        "server": [
+                            {
+                                "command": "SERVER",
+                                "hostname": "0.pool.ntp.org"
+                            },
+                            {
+                                "command": "SERVER",
+                                "hostname": "1.pool.ntp.org"
+                            }
+                       ]
+                    },
+                    "protocol": "NTP"
+                }
+            }    
             "network_vss": {
                 "switches": [
                     {
