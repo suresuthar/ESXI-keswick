@@ -111,6 +111,10 @@ spec:
                             {
                                 "name": "New port group",
                                 "vlan_id": 10
+                            },
+                            {
+                                "name": "New port 11",
+                                "vlan_id": 11
                             }
                         ]
                     }
