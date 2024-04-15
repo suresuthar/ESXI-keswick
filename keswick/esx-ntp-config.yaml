@@ -109,7 +109,7 @@ spec:
                         "mtu": 1500,
                         "port_groups": [
                             {
-                                "name": "AppVM",
+                                "name": "AppVMs",
                                 "vlan_id": 10
                             },
                             {
