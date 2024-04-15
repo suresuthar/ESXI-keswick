@@ -109,12 +109,12 @@ spec:
                         "mtu": 1500,
                         "port_groups": [
                             {
-                                "name": "New port group",
+                                "name": "AppVM",
                                 "vlan_id": 10
                             },
                             {
-                                "name": "New port 11",
-                                "vlan_id": 11
+                                "name": "Span-pg",
+                                "vlan_id": 4095
                             }
                         ]
                     }
