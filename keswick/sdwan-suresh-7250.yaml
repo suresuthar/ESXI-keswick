@@ -6,7 +6,7 @@ metadata:
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: sdwan-test1
+  name: sdwan-test1-ss
   namespace: sdwan
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
