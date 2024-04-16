@@ -1,7 +1,7 @@
 apiVersion: esx.vmware.com/v1alpha1
 kind: HostConfiguration
 metadata:
-  name: nic-scan-on-boot
+  name: nic-scan-on-boot1
   namespace: esx-system
 spec:
   layertype: Incremental
@@ -10,22 +10,22 @@ spec:
         "esx": {
             "system": {
                 "system_time": {
-                    "enabled": "true",
+                    "enabled": true,
+                    "protocol": "NTP",
                     "ntp_config": {
                         "server": [
                             {
-                                "command": "SERVER",
-                                "hostname": "0.pool.ntp.org"
+                                "hostname": "0.pool.ntp.org",
+                                "command": "SERVER"
                             },
                             {
-                                "command": "SERVER",
-                                "hostname": "1.pool.ntp.org"
+                                "hostname": "1.pool.ntp.org",
+                                "command": "SERVER"
                             }
-                       ]
-                    },
-                    "protocol": "NTP"
-                }
-            }    
+                        ]
+                    }
+                },
+            },
             "network_vss": {
                 "switches": [
                     {
@@ -110,16 +110,27 @@ spec:
                         "port_groups": [
                             {
                                 "name": "AppVMs",
-                                "vlan_id": 10
+                                "vlan_id": 0,
+                                "policy": {
+                                    "security": {
+                                        "allow_promiscuous": true,
+                                        "mac_changes": true,
+                                        "forged_transmits": true
+                                    }
+                                }
                             },
                             {
-                                "name": "Span-pg",
-                                "vlan_id": 4095
-                            },
-                            {
-                                "name": "Test-net",
-                                "vlan_id": 0
+                                "name": "Span-pg1",
+                                "vlan_id": 4095,
+                                "policy": {
+                                    "security": {
+                                        "allow_promiscuous": true,
+                                        "mac_changes": true,
+                                        "forged_transmits": true
+                                    }
+                                }
                             }
+                            
                         ]
                     }
                 ]
