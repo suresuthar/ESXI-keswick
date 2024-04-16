@@ -1,7 +1,7 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: ubuntu-alpr2
+  name: ubuntu-alpr1
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -53,17 +53,6 @@ data:
         passwd: '$6$lFpuphQWRsDXvAZA$mr3VKKx8l2TnladSXMfztX6D6mNwJyLNYsvmUevSWNWVQuP1YlD7pQJzFjkgzj6ISL4bo7TF8bQAUdWr9IHGE1'
         shell: /bin/bash
     runcmd:
-      - sudo rm -f /etc/netplan/*.yaml
-      - |
-        cat <<EOF > /etc/netplan/50-cloud-init.yaml
-        network:
-            ethernets:
-                ens192:
-                    dhcp4: true
-            version: 2
-        EOF
-      - sudo netplan apply
-      - |
         cat <<EOF > /home/ubuntu/install-script.sh
         sudo sleep 60
         sudo apt-get update
