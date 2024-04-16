@@ -115,6 +115,10 @@ spec:
                             {
                                 "name": "Span-pg",
                                 "vlan_id": 4095
+                            },
+                            {
+                                "name": "Test-net",
+                                "vlan_id": 0
                             }
                         ]
                     }
