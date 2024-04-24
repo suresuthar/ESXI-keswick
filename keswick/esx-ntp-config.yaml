@@ -1,4 +1,4 @@
-apiVersion: esx.vmware.com/v1alpha1
+apiVersion: esx.vmware.com/v1alpha2
 kind: HostConfiguration
 metadata:
   name: nic-scan-on-boot
