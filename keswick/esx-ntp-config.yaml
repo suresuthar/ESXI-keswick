@@ -1,7 +1,7 @@
 apiVersion: esx.vmware.com/v1alpha2
 kind: HostConfiguration
 metadata:
-  name: nic-scan-on-boot
+  name: nic-scan-boot
   namespace: esx-system
 spec:
   layertype: Incremental
