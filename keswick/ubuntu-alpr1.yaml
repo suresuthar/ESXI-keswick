@@ -17,7 +17,7 @@ spec:
     transport: CloudInit
 
 ---
-apiVersion: vmoperator.vmware.com/v1alpha1
+apiVersion: vmoperator.vmware.com/v1alpha2
 kind: VirtualMachineClass
 metadata:
   name: my-vm-class1
