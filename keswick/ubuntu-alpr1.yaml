@@ -1,4 +1,4 @@
-apiVersion: vmoperator.vmware.com/v1alpha2
+apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
   name: ubuntu-alpr1
@@ -17,7 +17,7 @@ spec:
     transport: CloudInit
 
 ---
-apiVersion: vmoperator.vmware.com/v1alpha2
+apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachineClass
 metadata:
   name: my-vm-class1
