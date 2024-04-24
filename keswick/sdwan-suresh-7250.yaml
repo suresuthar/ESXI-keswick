@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   name: sdwan
 ---  
-apiVersion: vmoperator.vmware.com/v1alpha1
+apiVersion: vmoperator.vmware.com/v1alpha2
 kind: VirtualMachine
 metadata:
   name: sdwan-test1-ss
