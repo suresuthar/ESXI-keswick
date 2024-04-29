@@ -102,7 +102,7 @@ spec:
                                 }
                             },
                             {
-                                "name": "Span-pg1",
+                                "name": "Span-pg",
                                 "vlan_id": 4095,
                                 "policy": {
                                     "security": {
