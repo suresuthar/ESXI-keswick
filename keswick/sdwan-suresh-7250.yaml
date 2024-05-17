@@ -3,10 +3,10 @@ kind: Namespace
 metadata:
   name: sdwan
 ---  
-apiVersion: vmoperator.vmware.com/v1alpha1
+apiVersion: vmoperator.vmware.com/v1alpha2
 kind: VirtualMachine
 metadata:
-  name: vcd-ss-7251
+  name: vcd-ss-7252
   namespace: sdwan
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
