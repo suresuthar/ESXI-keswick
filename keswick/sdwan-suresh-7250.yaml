@@ -16,6 +16,7 @@ spec:
   powerState: poweredOn
   networkInterfaces:
   - networkName: "VM Network"
+    networkAdapter: 1
     ethernetCardType: "vmxnet3"
   - networkName: "Test-PG"
     ethernetCardType: "vmxnet3"
