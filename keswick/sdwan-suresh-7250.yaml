@@ -6,7 +6,7 @@ metadata:
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: vcd-ss-7254
+  name: vcd-ss-7253
   namespace: sdwan
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -16,7 +16,6 @@ spec:
   powerState: poweredOn
   networkInterfaces:
   - networkName: "VM Network"
-    networkAdapter: 1
     ethernetCardType: "vmxnet3"
   - networkName: "Test-PG"
     ethernetCardType: "vmxnet3"
