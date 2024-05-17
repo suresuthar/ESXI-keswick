@@ -17,15 +17,15 @@ spec:
   networkInterfaces:
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
-  - networkName: "Test-pg"
+  - networkName: "Test-PG"
     ethernetCardType: "vmxnet3"
   - networkName: "sdwanmgmtpg"
     ethernetCardType: "vmxnet3"
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
-  - networkName: "Test-pg"
+  - networkName: "Test-PG"
     ethernetCardType: "vmxnet3"
-  - networkName: "Test-pg"
+  - networkName: "Test-PG"
     ethernetCardType: "vmxnet3"
   vmMetadata:
     secretName: my-vm-bootstrap-data
