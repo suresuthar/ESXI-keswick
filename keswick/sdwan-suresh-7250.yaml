@@ -12,7 +12,7 @@ metadata:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: guaranteed-small
-  imageName: ent.box.com/shared/static/1u6qrqcua43cm0iefjc2y17wqro262tk.ova
+  imageName: 10.221.124.112/edge_52-rooted-fixed-ci.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "VM Network"
