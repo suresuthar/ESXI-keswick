@@ -15,17 +15,17 @@ spec:
   imageName: ent.box.com/shared/static/1u6qrqcua43cm0iefjc2y17wqro262tk.ova
   powerState: poweredOn
   networkInterfaces:
-  - networkName: "AppVMs"
+  - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
-  - networkName: "AppVMs"
+  - networkName: "Test-pg"
+    ethernetCardType: "vmxnet3"
+  - networkName: "sdwanmgmtpg"
     ethernetCardType: "vmxnet3"
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
-  - networkName: "VM Network"
+  - networkName: "Test-pg"
     ethernetCardType: "vmxnet3"
-  - networkName: "Span-pg"
-    ethernetCardType: "vmxnet3"
-  - networkName: "Span-PG"
+  - networkName: "Test-pg"
     ethernetCardType: "vmxnet3"
   vmMetadata:
     secretName: my-vm-bootstrap-data
