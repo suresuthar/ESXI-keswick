@@ -15,7 +15,7 @@ spec:
   imageName: 10.221.124.112/edge_52-rooted-fixed-ci.ova
   powerState: poweredOn
   networkInterfaces:
-  - networkName1: "VM Network"
+  - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
   - networkName: "Test-PG"
     ethernetCardType: "vmxnet3"
