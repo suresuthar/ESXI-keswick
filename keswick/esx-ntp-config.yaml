@@ -59,7 +59,11 @@ spec:
                             {
                                 "name": "VM Network",
                                 "vlan_id": 0
-                            }
+                            },
+                            {
+                                "name": "Test-PG",
+                                "vlan_id": 10
+                            }                            
                         ],
                         "policy": {
                             "nic_teaming": {
@@ -109,12 +113,8 @@ spec:
                         "mtu": 1500,
                         "port_groups": [
                             {
-                                "name": "AppVMs",
-                                "vlan_id": 10
-                            },
-                            {
-                                "name": "Span-pg",
-                                "vlan_id": 4095
+                                "name": "sdwanmgmtpg",
+                                "vlan_id": 0
                             }
                         ]
                     }
