@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   name: sdwan
 ---  
-apiVersion: vmoperator.vmware.com/v1alpha2
+apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
   name: vcd-ss-7252
