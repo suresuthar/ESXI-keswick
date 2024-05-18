@@ -8,10 +8,10 @@ metadata:
 spec:
   className: my-vm-class-1
   imageName: cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.ova
-  powerState: poweredOff
+  powerState: poweredOn
   networkInterfaces:
-  - networkName: "AppVMs"
-    ethernetCardType: "vmxnet3"
+    - networkName: "AppVMs"
+      ethernetCardType: "vmxnet3"
   vmMetadata:
     configMapName: user-data-ubuntu
     transport: CloudInit
@@ -40,8 +40,8 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: user-data-ubuntu
-    namespace: default
+  name: user-data-ubuntu
+  namespace: default
 data:
   user-data: |
     #cloud-config
@@ -68,7 +68,7 @@ data:
         sudo sleep 60
         sudo apt-get update
         sudo apt install -y make cmake apache2
-        sudo apt-get install -y python3-opencv openalpr g++ cmake libtesseract-dev libleptonica-dev libopencv-dev  libcurl4-openssl-dev liblog4cplus-dev
+        sudo apt-get install -y python3-opencv openalpr g++ cmake libtesseract-dev libleptonica-dev libopencv-dev libcurl4-openssl-dev liblog4cplus-dev
         sudo git clone https://github.com/openalpr/openalpr.git
         cd openalpr/
         cd src
