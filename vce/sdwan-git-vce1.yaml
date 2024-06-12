@@ -6,7 +6,7 @@ metadata:
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: sdwan-git-vce1
+  name: sdwan-git-vce
   namespace: sdwan
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -15,9 +15,9 @@ spec:
   imageName: https://ent.box.com/shared/static/dvevhnb1u6oqxi0yphxjlfwub4hp1wza.ova
   powerState: poweredOn
   networkInterfaces:
-  - networkName: "Span-PG"
+  - networkName: "Span-pg"
     ethernetCardType: "vmxnet3"
-  - networkName: "Span-PG"
+  - networkName: "Span-pg"
     ethernetCardType: "vmxnet3"
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
@@ -25,7 +25,7 @@ spec:
     ethernetCardType: "vmxnet3"
   - networkName: "AppVMs"
     ethernetCardType: "vmxnet3"
-  - networkName: "Span-PG"
+  - networkName: "Span-pg"
     ethernetCardType: "vmxnet3"
   vmMetadata:
     secretName: my-vm-bootstrap-data
