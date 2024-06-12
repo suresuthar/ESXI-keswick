@@ -1,7 +1,7 @@
 apiVersion: esx.vmware.com/v1alpha1
 kind: HostConfiguration
 metadata:
-  name: network-on-boot
+  name: usb-nic-scan-on-boot
   namespace: esx-system
 spec:
   layertype: Incremental
