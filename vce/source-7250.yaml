@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sdwan
+---  
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: vcd-ss-7250
+  namespace: sdwan
+  annotations:
+    vmoperator.vmware.com/image-supported-check: disable
+spec:
+  className: guaranteed-small
+  imageName: ent.box.com/shared/static/1u6qrqcua43cm0iefjc2y17wqro262tk.ova
+  powerState: poweredOn
+  networkInterfaces:
+  - networkName: "AppVMs"
+    ethernetCardType: "vmxnet3"
+  - networkName: "AppVMs"
+    ethernetCardType: "vmxnet3"
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  - networkName: "Span-pg"
+    ethernetCardType: "vmxnet3"
+  - networkName: "Span-PG"
+    ethernetCardType: "vmxnet3"
+  vmMetadata:
+    secretName: my-vm-bootstrap-data
+    transport: CloudInit
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-vm-bootstrap-data
+  namespace: sdwan
+stringData:
+  user-data: |
+    #cloud-config
+    password: velocloud
+    chpasswd: { expire: False }
+    ssh_pwauth: True
+    velocloud:
+      vce: 
+            vco: vco12-usvi1.velocloud.net
+            activation_code: AAN7-GTDN-UVSQ-ZGVU
+            vco_ignore_cert_errors: true
