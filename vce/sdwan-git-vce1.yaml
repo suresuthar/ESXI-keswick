@@ -6,7 +6,7 @@ metadata:
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: ecs-vce1
+  name: ecs-vce2
   namespace: sdwan
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
