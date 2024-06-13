@@ -6,7 +6,7 @@ metadata:
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: sdwanvce1
+  name: sdwanvce2
   namespace: sdwan
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -30,20 +30,3 @@ spec:
   vmMetadata:
     secretName: my-vm-bootstrap-data
     transport: CloudInit
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: my-vm-bootstrap-data
-  namespace: sdwan
-stringData:
-  user-data: |
-    #cloud-config
-    password: velocloud
-    chpasswd: { expire: False }
-    ssh_pwauth: True
-    velocloud:
-      vce: 
-        vco: 23.22.72.50
-        activation_code: SZYE-CCSZ-KVSF-FUY4
-        vco_ignore_cert_errors: true
