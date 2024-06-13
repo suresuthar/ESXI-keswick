@@ -6,18 +6,18 @@ metadata:
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: sdwanvce4
+  name: ss-ecs-sdwan
   namespace: sdwan
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: guaranteed-small
-  imageName: ent.box.com/shared/static/dvevhnb1u6oqxi0yphxjlfwub4hp1wza.ova
+  imageName: ent.box.com/shared/static/1u6qrqcua43cm0iefjc2y17wqro262tk.ova
   powerState: poweredOn
   networkInterfaces:
-  - networkName: "Span-pg"
+  - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
-  - networkName: "Span-pg"
+  - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
@@ -25,5 +25,25 @@ spec:
     ethernetCardType: "vmxnet3"
   - networkName: "AppVMs"
     ethernetCardType: "vmxnet3"
-  - networkName: "Span-pg"
+  - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
+  vmMetadata:
+    secretName: my-vm-bootstrap-data
+    transport: CloudInit
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-vm-bootstrap-data
+  namespace: sdwan
+stringData:
+  user-data: |
+    #cloud-config
+    password: velocloud
+    chpasswd: { expire: False }
+    ssh_pwauth: True
+    velocloud:
+      vce: 
+            vco: vco12-usvi1.velocloud.net
+            activation_code: SZYE-CCSZ-KVSF-FUY4
+            vco_ignore_cert_errors: true 
