@@ -1,1 +1,22 @@
-https://ent.box.com/shared/static/dvevhnb1u6oqxi0yphxjlfwub4hp1wza.ova
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: client
+  name: client
+  namespace: default
+spec:
+  imagePullSecrets:
+  - name: regcred
+  containers:
+  - args:
+    - /bin/sh
+    - -c
+    - while true; do sleep 3600; done
+    image: busybox
+    name: client
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
