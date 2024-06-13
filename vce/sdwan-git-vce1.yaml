@@ -6,13 +6,13 @@ metadata:
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: ecs-sdwan
+  name: ecs-vce1
   namespace: sdwan
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: guaranteed-small
-  imageName: ent.box.com/shared/static/1u6qrqcua43cm0iefjc2y17wqro262tk.ova
+  imageName: ent.box.com/shared/static/dvevhnb1u6oqxi0yphxjlfwub4hp1wza.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "VM Network"
