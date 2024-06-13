@@ -17,6 +17,16 @@ spec:
   networkInterfaces:
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
+  - networkName: "AppVMs"
+    ethernetCardType: "vmxnet3"
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  - networkName: "Span-pg"
+    ethernetCardType: "vmxnet3"
+  - networkName: "Span-PG"
+    ethernetCardType: "vmxnet3"
   vmMetadata:
     secretName: my-vm-bootstrap-data
     transport: CloudInit
