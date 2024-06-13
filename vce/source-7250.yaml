@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: sdwan
+  name: sdwan-new
 ---  
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
   name: vcd-ss-7250
-  namespace: sdwan
+  namespace: sdwan-new
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
@@ -35,7 +35,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: my-vm-bootstrap-data
-  namespace: sdwan
+  namespace: sdwan-new
 stringData:
   user-data: |
     #cloud-config
