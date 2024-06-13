@@ -36,9 +36,3 @@ kind: Secret
 metadata:
   name: my-vm-bootstrap-data
   namespace: sdwan
-stringData:
-  user-data: |
-    #cloud-config
-    password: velocloud
-    chpasswd: { expire: False }
-    ssh_pwauth: True
