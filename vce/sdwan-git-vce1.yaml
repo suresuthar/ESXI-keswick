@@ -25,7 +25,7 @@ spec:
     ethernetCardType: "vmxnet3"
   - networkName: "Span-pg"
     ethernetCardType: "vmxnet3"
-  - networkName: "Span-PG"
+  - networkName: "Span-pg"
     ethernetCardType: "vmxnet3"
   vmMetadata:
     secretName: my-vm-bootstrap-data
