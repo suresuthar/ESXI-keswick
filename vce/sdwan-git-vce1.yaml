@@ -15,7 +15,7 @@ spec:
   imageName: ent.box.com/shared/static/dvevhnb1u6oqxi0yphxjlfwub4hp1wza.ova
   powerState: poweredOn
   networkInterfaces:
-  - networkName: "Span-pg"
+  - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
   - networkName: "AppVMs"
     ethernetCardType: "vmxnet3"
