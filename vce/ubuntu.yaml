@@ -10,7 +10,7 @@ spec:
   imageName: cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.ova
   powerState: poweredOn
   networkInterfaces:
-  - networkName: "AppVMs"
+  - networkName: "internal-ecs-pg"
     ethernetCardType: "vmxnet3"
   vmMetadata:
     configMapName: user-data-ubuntu-1
