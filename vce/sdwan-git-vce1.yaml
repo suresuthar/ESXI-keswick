@@ -17,22 +17,16 @@ spec:
   networkInterfaces:
   - networkName: "brlink-pg"
     ethernetCardType: "vmxnet3"
-    macAddress: "00:0c:29:3a:85:36"
   - networkName: "internal-ecs-pg"
     ethernetCardType: "vmxnet3"
-    macAddress: "00:0c:29:3a:85:40"
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
-    macAddress: "00:0c:29:3a:85:4a"
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
-    macAddress: "00:0c:29:3a:85:54"
   - networkName: "internal-ecs-pg"
     ethernetCardType: "vmxnet3"
-    macAddress: "00:0c:29:3a:85:5e"
   - networkName: "internal-ecs-pg"
     ethernetCardType: "vmxnet3"
-    macAddress: "00:0c:29:3a:85:68"
   vmMetadata:
     secretName: my-vm-bootstrap-data
     transport: CloudInit
