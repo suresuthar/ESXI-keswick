@@ -1,7 +1,7 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: ubuntu-alpr1
+  name: ubuntu-alpr
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -11,6 +11,8 @@ spec:
   powerState: poweredOn
   networkInterfaces:
   - networkName: "internal-ecs-pg"
+    ethernetCardType: "vmxnet3"
+  - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
   vmMetadata:
     configMapName: user-data-ubuntu-1
