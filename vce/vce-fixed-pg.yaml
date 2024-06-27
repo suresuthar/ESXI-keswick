@@ -12,7 +12,7 @@ metadata:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: best-effort-small
-  imageName: ent.box.com/s/e6gz5foeuxts309h4t2m3nkf2kzorysp
+  imageName: ent.box.com/shared/static/e6gz5foeuxts309h4t2m3nkf2kzorysp.ova
   powerState: poweredOn
   vmMetadata:
     secretName: my-vm-bootstrap-data
