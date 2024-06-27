@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sdwan
+---  
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: vce-ss-fixed-pg
+  namespace: sdwan
+  annotations:
+    vmoperator.vmware.com/image-supported-check: disable
+spec:
+  className: best-effort-small
+  imageName: ent.box.com/s/e6gz5foeuxts309h4t2m3nkf2kzorysp
+  powerState: poweredOn
+  vmMetadata:
+    secretName: my-vm-bootstrap-data
+    transport: CloudInit
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-vm-bootstrap-data
+  namespace: sdwan
+stringData:
+  user-data: |
+    #cloud-config
+    password: velocloud
+    chpasswd: { expire: False }
+    ssh_pwauth: True
+    velocloud:
+      vce: 
+            vco: 152.65.224.129
+            activation_code: KL42-AVNX-58Y6-DPQU
+            vco_ignore_cert_errors: true
