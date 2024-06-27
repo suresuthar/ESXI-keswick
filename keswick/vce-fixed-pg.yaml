@@ -6,8 +6,8 @@ metadata:
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: vcd-ss-7250
-  namespace: sdwan-test
+  name: vce-ss-fixed-pg
+  namespace: sdwan
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
