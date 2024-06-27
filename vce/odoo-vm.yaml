@@ -7,8 +7,8 @@ metadata:
   name: odoo-class
 spec:
   hardware:
-    cpus: 4
-    memory: 8Gi
+    cpus: 2
+    memory: 4Gi
 
 ---
 apiVersion: vmoperator.vmware.com/v1alpha1
