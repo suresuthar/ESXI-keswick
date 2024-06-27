@@ -11,7 +11,7 @@ metadata:
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
-  className: guaranteed-small
+  className: best-effort-small
   imageName: ent.box.com/s/e6gz5foeuxts309h4t2m3nkf2kzorysp
   powerState: poweredOn
   vmMetadata:
