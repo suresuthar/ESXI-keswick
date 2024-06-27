@@ -13,7 +13,20 @@ metadata:
 spec:
   className: best-effort-small
   imageName: ent.box.com/shared/static/e6gz5foeuxts309h4t2m3nkf2kzorysp.ova
-  powerState: poweredOn
+  powerState: poweredOn  
+  networkInterfaces:
+  - networkName: "brlink-pg"
+    ethernetCardType: "vmxnet3"
+  - networkName: "internal-ecs-pg"
+    ethernetCardType: "vmxnet3"
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  - networkName: "internal-ecs-pg"
+    ethernetCardType: "vmxnet3"
+  - networkName: "internal-ecs-pg"
+    ethernetCardType: "vmxnet3"
   vmMetadata:
     secretName: my-vm-bootstrap-data
     transport: CloudInit
