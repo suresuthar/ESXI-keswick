@@ -12,7 +12,8 @@ metadata:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: best-effort-xsmall
-  imageName: ent.box.com/shared/static/dvevhnb1u6oqxi0yphxjlfwub4hp1wza.ova
+  #imageName: ent.box.com/shared/static/dvevhnb1u6oqxi0yphxjlfwub4hp1wza.ova
+  imageName: ent.box.com/shared/static/lkje8iad2xhgkfbfum5r61e5p7qhl5zi.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "brlink-pg"
