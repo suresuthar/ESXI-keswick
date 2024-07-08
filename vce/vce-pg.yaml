@@ -23,13 +23,13 @@ spec:
   - networkName: "internal-ecs-pg"
     ethernetCardType: "vmxnet3"
   vmMetadata:
-    secretName: my-vm-bootstrap-data1
+    secretName: my-vm1-bootstrap-data1
     transport: CloudInit
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: my-vm-bootstrap-data1
+  name: my-vm1-bootstrap-data1
   namespace: sdwan
 stringData:
   user-data: |
