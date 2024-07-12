@@ -1,0 +1,69 @@
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachineClass
+metadata:
+  name: best-effort-ec-small
+  # No resource requests/reservations.
+  # Memory overcommit possible.
+spec:
+  # VM operator controller name for VirtualMachine class
+  # is different so addition of controllerName attr with invalid
+  # value makes vm operator ignore this VM CRD instance.
+  # This is majorly done because vm operator doesn't have all the
+  # needed capabilities to deploy ec worker vm.
+  controllerName: vmoperator.vmware.com/ecworker
+  hardware:
+    cpus: 4
+    memory: 6Gi
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ec-system
+---
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: ec-worker
+  namespace: ec-system
+spec:
+  className: best-effort-ec-small
+  imageName: ec-wrkr.ova
+  powerState: poweredOff
+  vmMetadata:
+    configMapName: user-data-worker
+    transport: CloudInit
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-data-worker
+  namespace: ec-system
+data:
+  user-data: |
+    #cloud-config
+    ssh_pwauth: true
+    users:
+      - name: root
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        lock_passwd: false
+        passwd: '$6$lFpuphQWRsDXvAZA$mr3VKKx8l2TnladSXMfztX6D6mNwJyLNYsvmUevSWNWVQuP1YlD7pQJzFjkgzj6ISL4bo7TF8bQAUdWr9IHGE1'
+        shell: /bin/bash
+    runcmd:
+      - sudo rm -f /etc/netplan/*.yaml
+      - |
+        cat <<EOF > /etc/netplan/50-cloud-init.yaml
+        network:
+            ethernets:
+              eth0:
+                  dhcp4: false
+                  addresses:
+                    - 172.16.227.180/16
+                  routes:
+                    - to: default
+                      via: 172.16.255.254
+                  nameservers:
+                      addresses: [8.8.8.8]
+            version: 2
+        EOF
+      - sudo netplan apply
