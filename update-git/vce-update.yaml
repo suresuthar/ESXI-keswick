@@ -1,1 +1,45 @@
 
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sdwan
+---  
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: ss-ecs-ia-vce2
+  namespace: sdwan
+  annotations:
+    vmoperator.vmware.com/image-supported-check: disable
+spec:
+  className: best-effort-xsmall
+  imageName: ent.box.com/shared/static/dvevhnb1u6oqxi0yphxjlfwub4hp1wza.ova
+  powerState: poweredOn
+  networkInterfaces:
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  - networkName: "sdwanmgmtpg"
+    ethernetCardType: "vmxnet3"
+  - networkName: "sdwanmgmtpg"
+    ethernetCardType: "vmxnet3"
+  - networkName: "sdwanmgmtpg"
+    ethernetCardType: "vmxnet3"
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  - networkName: "sdwanmgmtpg"
+    ethernetCardType: "vmxnet3"
+  vmMetadata:
+    secretName: my-vm-bootstrap-data
+    transport: CloudInit
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-vm-bootstrap-data
+  namespace: sdwan
+stringData:
+  user-data: |
+    #cloud-config
+    password: velocloud
+    chpasswd: { expire: False }
+    ssh_pwauth: True
