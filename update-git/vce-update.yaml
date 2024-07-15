@@ -1,4 +1,19 @@
-
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachineClass
+metadata:
+  name: best-effort-vce-small
+  # No resource requests/reservations.
+  # Memory overcommit possible.
+spec:
+  # VM operator controller name for VirtualMachine class
+  # is different so addition of controllerName attr with invalid
+  # value makes vm operator ignore this VM CRD instance.
+  # This is majorly done because vm operator doesn't have all the
+  # needed capabilities to deploy ec worker vm.
+  hardware:
+    cpus: 4
+    memory: 6Gi
+----
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -12,7 +27,7 @@ metadata:
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
-  className: best-effort-xsmall
+  className: best-effort-vce-small
   imageName: ent.box.com/shared/static/dvevhnb1u6oqxi0yphxjlfwub4hp1wza.ova
   powerState: poweredOn
   networkInterfaces:
