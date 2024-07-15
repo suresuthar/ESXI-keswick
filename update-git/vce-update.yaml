@@ -23,3 +23,16 @@ spec:
   className: ls-small-vmclass
   imageName: ent.box.com/shared/static/dvevhnb1u6oqxi0yphxjlfwub4hp1wza.ova
   powerState: poweredOn
+  networkInterfaces:
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  - networkName: "sdwanmgmtpg"
+    ethernetCardType: "vmxnet3"
+  - networkName: "sdwanmgmtpg"
+    ethernetCardType: "vmxnet3"
+  - networkName: "sdwanmgmtpg"
+    ethernetCardType: "vmxnet3"
+  - networkName: "VM Network"
+    ethernetCardType: "vmxnet3"
+  - networkName: "sdwanmgmtpg"
+    ethernetCardType: "vmxnet3"
