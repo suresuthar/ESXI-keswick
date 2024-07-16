@@ -8,7 +8,7 @@ metadata:
 spec:
   className: best-effort-xsmall
   imageName: cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.ova
-  powerState: poweredOn
+  powerState: poweredOff
   networkInterfaces:
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
