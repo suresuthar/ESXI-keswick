@@ -30,7 +30,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: my-vm-bootstrap-data
-  namespace: sdwan
+  namespace: default
 stringData:
   user-data: |
     #cloud-config
