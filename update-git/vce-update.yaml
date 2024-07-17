@@ -15,7 +15,7 @@ spec:
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: sd-wan-vm1
+  name: sd-wan-vm2
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -24,15 +24,35 @@ spec:
   imageName: ent.box.com/shared/static/dvevhnb1u6oqxi0yphxjlfwub4hp1wza.ova
   powerState: poweredOn
   networkInterfaces:
-  - networkName: "VM Network"
+  - networkName: "VM Network"        # NIC1
     ethernetCardType: "vmxnet3"
-  - networkName: "sdwanmgmtpg"
+  - networkName: "sdwanmgmtpg"       # NIC2
     ethernetCardType: "vmxnet3"
-  - networkName: "sdwanmgmtpg"
+  - networkName: "sdwanmgmtpg"       # NIC3
     ethernetCardType: "vmxnet3"
-  - networkName: "sdwanmgmtpg"
+  - networkName: "sdwanmgmtpg"       # NIC4
     ethernetCardType: "vmxnet3"
-  - networkName: "VM Network"
+  - networkName: "VM Network"        # NIC5
     ethernetCardType: "vmxnet3"
-  - networkName: "sdwanmgmtpg"
+  - networkName: "sdwanmgmtpg"       # NIC6
     ethernetCardType: "vmxnet3"
+  vmMetadata:
+    secretName: my-vm-bootstrap-data
+    transport: CloudInit
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-vm-bootstrap-data
+  namespace: sdwan
+stringData:
+  user-data: |
+    #cloud-config
+    password: velocloud
+    chpasswd: { expire: False }
+    ssh_pwauth: True
+    velocloud:
+      vce: 
+            vco: 23.22.72.50
+            activation_code: RMXD-6RD7-T6FJ-D9CM
+            vco_ignore_cert_errors: true
