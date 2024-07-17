@@ -1,13 +1,13 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: sdwan-vm3
+  name: sdwan-vm4
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: guaranteed-small
-  imageName: ent.box.com/shared/static/sx7j4u6wllz8d2l85xr72sfldulg8yxq.ova
+  imageName: ent.box.com/shared/static/8o6sv5k7yjiktm37iu0iylmtu1ii5wis.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "ecsinternal"        # NIC1
