@@ -1,7 +1,7 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: sdwan-vm1
+  name: sdwan-vm2
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
