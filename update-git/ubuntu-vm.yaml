@@ -15,11 +15,6 @@ spec:
   vmMetadata:
     configMapName: user-data-ubuntu-1
     transport: CloudInit
-  advancedOptions:
-    extraConfig:
-      "numvcpus.hotadd": "true"
-      "mem.hotadd": "true"
-
 ---
 apiVersion: v1
 kind: ConfigMap
