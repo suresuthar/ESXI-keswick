@@ -1,18 +1,4 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
-kind: VirtualMachineClass
-metadata:
-  name: ls-small-vmclass
-spec:
-  hardware:
-    cpus: 2
-    memory: 5Gi
-  policies:
-    resources:
-      requests:
-        cpu: 2
-        memory: 5Gi
---- 
-apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
   name: sd-wan-vm2
@@ -20,7 +6,7 @@ metadata:
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
-  className: ls-small-vmclass
+  className: guaranteed-small
   imageName: ent.box.com/shared/static/dvevhnb1u6oqxi0yphxjlfwub4hp1wza.ova
   powerState: poweredOn
   networkInterfaces:
