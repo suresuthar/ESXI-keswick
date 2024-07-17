@@ -7,20 +7,20 @@ metadata:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: guaranteed-small
-  imageName: ent.box.com/shared/static/jwn4j90miqajyztc6d4f6f6t3zh5wwg6.ova
+  imageName: ent.box.com/shared/static/8zv14906h0c0apdmw38cefcgusdhu0jx.ova
   powerState: poweredOn
   networkInterfaces:
-  - networkName: "VM Network"        # NIC1
+  - networkName: "ecs-internal"        # NIC1
     ethernetCardType: "vmxnet3"
-  - networkName: "VM Network"       # NIC2
+  - networkName: "ecs-internal"       # NIC2
     ethernetCardType: "vmxnet3"
   - networkName: "sdwanmgmtpg"       # NIC3
     ethernetCardType: "vmxnet3"
   - networkName: "sdwanmgmtpg"       # NIC4
     ethernetCardType: "vmxnet3"
-  - networkName: "VM Network"        # NIC5
+  - networkName: "ecs-internal"        # NIC5
     ethernetCardType: "vmxnet3"
-  - networkName: "VM Network"       # NIC6
+  - networkName: "ecs-internal"       # NIC6
     ethernetCardType: "vmxnet3"
   vmMetadata:
     secretName: my-vm-bootstrap-data
