@@ -8,7 +8,7 @@ metadata:
 spec:
   className: guaranteed-small
   imageName: ent.box.com/shared/static/e9amvneneb53kra2kcfb6kgm90132n0v.ova
-  powerState: poweredOn
+  powerState: poweredOff
   networkInterfaces:
   - networkName: "internal-ecs-pg"        # NIC1
     ethernetCardType: "vmxnet3"
