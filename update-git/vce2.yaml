@@ -14,9 +14,9 @@ spec:
     ethernetCardType: "vmxnet3"
   - networkName: "internal-ecs-pg"       # NIC2
     ethernetCardType: "vmxnet3"
-  - networkName: "VM Network"        # NIC1
+  - networkName: "VM Network"        # NIC3
     ethernetCardType: "vmxnet3"
-  - networkName: "VM Network"       # NIC2
+  - networkName: "VM Network"       # NIC4
     ethernetCardType: "vmxnet3"
   vmMetadata:
     secretName: my-vm-bootstrap-data1
