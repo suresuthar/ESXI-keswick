@@ -1,26 +1,18 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: sdwan-vm4
+  name: sdwan-vm5
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: guaranteed-small
-  imageName: ent.box.com/shared/static/8o6sv5k7yjiktm37iu0iylmtu1ii5wis.ova
+  imageName: ent.box.com/shared/static/e9amvneneb53kra2kcfb6kgm90132n0v.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "ecsinternal"        # NIC1
     ethernetCardType: "vmxnet3"
-  - networkName: "ecsinternal"       # NIC2
-    ethernetCardType: "vmxnet3"
-  - networkName: "sdwanmgmtpg"       # NIC3
-    ethernetCardType: "vmxnet3"
-  - networkName: "sdwanmgmtpg"       # NIC4
-    ethernetCardType: "vmxnet3"
-  - networkName: "ecsinternal"        # NIC5
-    ethernetCardType: "vmxnet3"
-  - networkName: "ecsinternal"       # NIC6
+  - networkName: "VM Network"       # NIC2
     ethernetCardType: "vmxnet3"
   vmMetadata:
     secretName: my-vm-bootstrap-data
