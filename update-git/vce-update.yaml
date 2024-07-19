@@ -1,7 +1,7 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: sdwan-vm6
+  name: sdwan-vm8
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
@@ -14,6 +14,10 @@ spec:
     ethernetCardType: "vmxnet3"
   - networkName: "ecsinternal"       # NIC2
     ethernetCardType: "vmxnet3"
+  - networkName: "VM Network"        # NIC1
+    ethernetCardType: "vmxnet3"
+  - networkName: "ecsinternal"       # NIC2
+    ethernetCardType: "vmxnet3"    
   vmMetadata:
     secretName: my-vm-bootstrap-data
     transport: CloudInit
