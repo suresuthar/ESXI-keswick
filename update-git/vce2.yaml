@@ -22,6 +22,10 @@ spec:
     ethernetCardType: "vmxnet3"
   - networkName: "ecsinternal"       # NIC2
     ethernetCardType: "vmxnet3"
+  - networkName: "ecsinternal"        # NIC1
+    ethernetCardType: "vmxnet3"
+  - networkName: "ecsinternal"       # NIC2
+    ethernetCardType: "vmxnet3"
   vmMetadata:
     secretName: my-vm-bootstrap-data1
     transport: CloudInit
