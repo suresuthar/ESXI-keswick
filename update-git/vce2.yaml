@@ -14,10 +14,6 @@ spec:
     ethernetCardType: "vmxnet3"
   - networkName: "internal-ecs-pg"       # NIC2
     ethernetCardType: "vmxnet3"
-  - networkName: "ecsinternal"        # NIC1
-    ethernetCardType: "vmxnet3"
-  - networkName: "ecsinternal"       # NIC2
-    ethernetCardType: "vmxnet3"
   - networkName: "VM Network"        # NIC1
     ethernetCardType: "vmxnet3"
   - networkName: "VM Network"       # NIC2
