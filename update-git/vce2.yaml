@@ -12,15 +12,7 @@ spec:
   networkInterfaces:
   - networkName: "ecsinternal"        # NIC1
     ethernetCardType: "vmxnet3"
-  - networkName: "ecsinternal"       # NIC2
-    ethernetCardType: "vmxnet3"
-  - networkName: "VM Network"        # NIC3
-    ethernetCardType: "vmxnet3"
-  - networkName: "VM Network"       # NIC4
-    ethernetCardType: "vmxnet3"
-  - networkName: "ecsinternal"        # NIC5
-    ethernetCardType: "vmxnet3"
-  - networkName: "ecsinternal"       # NIC6
+  - networkName: "VM Network"        # NIC2
     ethernetCardType: "vmxnet3"
   vmMetadata:
     secretName: my-vm-bootstrap-data1
