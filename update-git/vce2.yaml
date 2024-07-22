@@ -10,9 +10,9 @@ spec:
   imageName: ent.box.com/shared/static/e9amvneneb53kra2kcfb6kgm90132n0v.ova
   powerState: poweredOn
   networkInterfaces:
-  - networkName: "internal-ecs-pg"        # NIC1
+  - networkName: "ecsinternal"        # NIC1
     ethernetCardType: "vmxnet3"
-  - networkName: "internal-ecs-pg"       # NIC2
+  - networkName: "ecsinternal"       # NIC2
     ethernetCardType: "vmxnet3"
   - networkName: "VM Network"        # NIC3
     ethernetCardType: "vmxnet3"
