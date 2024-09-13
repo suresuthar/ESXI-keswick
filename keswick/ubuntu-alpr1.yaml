@@ -1,7 +1,7 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: ubuntu-alpr2
+  name: ubuntu-alpr1
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
